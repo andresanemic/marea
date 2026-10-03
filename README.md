@@ -1,4 +1,4 @@
-[![Marea: duplicate counting checks for climate commitments](./assets/cover.png)](./assets/cover.png)
+[![Marea: una actividad, un año, una sola partida](./assets/cover.png)](./assets/cover.png)
 
 # Marea
 
@@ -6,21 +6,15 @@
   <a href="#english"><img src="https://img.shields.io/badge/status-documented_prototype-D7B698?style=for-the-badge&labelColor=07111A" alt="Status: documented prototype"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/license-review--only-D7B698?style=for-the-badge&labelColor=07111A" alt="License: review only"></a>
   <a href="./docs/EVIDENCE.md"><img src="https://img.shields.io/badge/suite-25_tests-D7B698?style=for-the-badge&labelColor=07111A" alt="Suite: 25 tests"></a>
-  <a href="./docs/HOW_IT_WORKS.md"><img src="https://img.shields.io/badge/agreement-agreement_before_code-D7B698?style=for-the-badge&labelColor=07111A" alt="Agreement before code"></a>
+  <a href="./docs/HOW_IT_WORKS.md"><img src="https://img.shields.io/badge/agreement-written_before_code-D7B698?style=for-the-badge&labelColor=07111A" alt="Agreement written before code"></a>
   <a href="https://github.com/andresanemic/vespi"><img src="https://img.shields.io/badge/built_with-Vespi_%C2%B7_Lore_Plugin-E0C170?style=for-the-badge&labelColor=07111A" alt="Built with Vespi and Lore Plugin"></a>
 </p>
 
-<p align="center">
-  Read the project summary in <a href="#english">English</a> or <a href="#espanol">Spanish</a>.
-</p>
+<p align="center">Read in <a href="#english">English</a> or <a href="#espanol">español</a>.</p>
 
-<p align="center">
-  Do you build on Stellar, or are you judging Find Your Way or Meridian? Start here: Marea is one of ten functional projects built on Vespi and Lore Plugin.
-</p>
+<p align="center">Marea is a local, documented prototype for making one narrow accounting collision visible: the same fictional activity-year pair declared twice.</p>
 
-<p align="center">
-  This repository holds the agreement, project documentation and recorded evidence. It does not include source code yet; the code opens during the judges' review period under a review-only license.
-</p>
+<p align="center">This public repository contains the agreement, documentation and recorded evidence. Source code is not included; the publication and review conditions are in <a href="./CODE_NOT_INCLUDED.md">Code not included</a> and <a href="./LICENSE">LICENSE</a>.</p>
 
 ---
 
@@ -29,44 +23,109 @@
 
 <a id="english"></a>
 
-**Marea makes a duplicate climate-accounting entry visible, with its reason in the same record as the first.**
+**Marea makes a duplicate climate-accounting entry visible and keeps its reason beside the first entry in the same local record.**
 
-> **The unit is the activity-year pair: the same fact can be recognized once.**
+> **The unit is the activity-year pair: one fact can be recognized once.**
 
-Marea is a local record and checker for fictional declarations of climate reductions between countries. It checks stated origins, methodology and person-granted authority, and keeps distinct metric tracks separate. It does not calculate emissions.
+## The problem
 
-**Why.** When two countries recognize the same reduction, the global total can be inflated. That is an accounting collision, not a math error, and separate records can hide it. See [How it works](./docs/HOW_IT_WORKS.md) for the bounded mechanism Marea demonstrates.
+When two countries recognize the same reduction, a combined total can count one claimed result twice. The arithmetic in each separate record may be correct while the accounting across both is not; unless someone links each declaration back to its origin activity and year, the collision can remain hidden.
 
-**If you are judging Find Your Way or Meridian, start here.**
+Marea explores one small response to that problem. It records fictional declarations against a local origin and checks whether the activity-year pair already appears in the same metric track. A rejection carries the collision and a way to resolve it in the record itself. Marea does not calculate emissions or decide whether a real reduction happened.
 
-1. **Agreement, workflow and example:** [How it works](./docs/HOW_IT_WORKS.md).
-2. **Recorded results and test names:** [Evidence](./docs/EVIDENCE.md).
-3. **Cited framework and boundaries:** [Legal and limits](./docs/LEGAL_AND_LIMITS.md).
-4. **Release timing and review terms:** [Code not included](./CODE_NOT_INCLUDED.md) and [LICENSE](./LICENSE).
+## If you are judging Find Your Way or Meridian, start here
+
+- Read the project foundation and its walkthrough. Start with [How it works](./docs/HOW_IT_WORKS.md).
+- Open the test record. See [Evidence](./docs/EVIDENCE.md).
+- Read the legal and verification limits. See [Legal and limits](./docs/LEGAL_AND_LIMITS.md).
+- Review the publication conditions. See [Code not included](./CODE_NOT_INCLUDED.md) and the [review-only license](./LICENSE).
 
 ## In one minute
 
-See [the recorded example](./docs/HOW_IT_WORKS.md#a-concrete-example) for the local declaration and duplicate check.
+Imagine a local ledger with fictional entries. A person records Alba's origin activity and grants Alba authority with a metric, destination, ceiling and expiry. Alba declares that activity for 2027, with a named methodology, and the checker accepts it. Bruma then submits the same activity for the same year and metric. Marea rejects that second entry, names Alba's earlier declaration, and stores the rejection beside the acceptance. A reader can inspect the report or audit either entry without relying on the executor's summary.
+
+## What it looks like in practice
+
+The following excerpt comes from the recorded walkthrough. Every country, activity, methodology, unit and amount in it is fictional; the transcript is evidence of the documented local run, not a real-world accounting result.
+
+```text
+── 3. Alba declara una reducción con su metodología y su unidad: entra
+  estado:   aceptada
+  motivo:   reconocida en la pista tCO2e (guía 2/CMA.3, §8) bajo la autorización aut-alba-ghg
+  ajuste:   lado suma, pista tCO2e (guía 2/CMA.3 §8), años 2027, anclas anc-alba-1
+  recibo:   verified · cobertura anclaje-resuelve, metodologia-declarada, sin-doble-conteo, ajuste-en-pista, autorizacion-vigente
+  anclaje:  pending en stellar:testnet — nada llegó a una red; esto NO está verificado afuera
+
+── 4. Bruma declara reutilizando la misma unidad sobre el mismo hecho: se rechaza
+  estado:   rechazada (unidad-compartida)
+  motivo:   doble conteo por unidad compartida: alba ya reconoció anc-alba-1 (bosque de la cuenca alta) en 2027 con la declaración dec-alba-1, y bruma la declara otra vez en la misma métrica tCO2e y el mismo año: el mismo hecho no se reconoce dos veces
+  evidencia: {"choques":[["anc-alba-1",2027]],"limpio":[],"contra":["dec-alba-1"],"pista":"tCO2e"}
+  salida:   retira la declaración de bruma sobre anc-alba-1, o cambia de actividad: una reducción no puede estar en dos balances a la vez
+  sello:    21eeacc59ed82a8c…
+```
+
+The run also records a control: two distinct activities in the same metric and year can both enter, and entries in distinct metric tracks can both enter in the same year. That is why the collision key is the activity-year pair rather than the year alone. The full transcript and fresh-session evidence are described in [Evidence](./docs/EVIDENCE.md).
+
+## How Marea works
+
+A person supplies the local origin and bounded authorization; a declaring country submits its entry; Marea checks the stored inputs; and a reader can independently inspect the same record.
+
+```text
+PERSON RECORDS ORIGIN ── PERSON GRANTS BOUNDED AUTHORITY
+             │                              │
+             └────────── COUNTRY DECLARES ──┘
+                              │
+                              ▼
+        resolve origin · metric · method · year · amount · authority
+                       ┌──────┴──────┐
+                       ▼             ▼
+                   accepted      rejected + reason
+                       └──────┬──────┘
+                              ▼
+              one local register + sealed receipt
+                              │
+                              ▼
+             independent recomputation + readable report
+```
+
+| Actor | What they can do | What the record shows | Boundary |
+|---|---|---|---|
+| Person recording an origin | Add an activity, country and metric to the local register | The origin referenced by an entry and who recorded it | The record does not prove the activity or person is real |
+| Person granting authority | Set country, metric, commitment period, ceiling, destination and expiry | The grantor and the authority's limits | The declaring agent cannot authorize itself or exceed the grant |
+| Fictional declaring country | Submit a declaration with origin and methodology | Acceptance or rejection, with its reason | Alba, Bruma, Cenal and Duna are invented examples, not states |
+| Marea checker | Recompute against the local store and rules | The checks and evidence behind each result | It checks stored inputs, not the truth of a climate claim |
+| Independent reader | Open the record and report; when code is available, rerun the audit | Acceptances, rejections, reasons and receipt checks | The reader still depends on fictional inputs and this limited model |
 
 ## Why Marea
 
-See [how the local workflow works](./docs/HOW_IT_WORKS.md#people-and-rights) and [what Marea does not claim](./docs/LEGAL_AND_LIMITS.md#what-marea-does-not-claim).
+| You need | What it gives you | Where it lives |
+|---|---|---|
+| To spot reuse of a claimed result | A collision identifies the shared activity and year and points to the earlier declaration | The local register and [recorded walkthrough](./docs/HOW_IT_WORKS.md#a-concrete-example) |
+| To understand why an entry was refused | The rejection keeps its reason, collision evidence and named resolution beside accepted entries | The same register and report |
+| To distinguish a missing origin from a duplicate | Unresolved or wrong-metric origins receive a verification reason; duplicate activity-year pairs receive a collision reason | [How it works](./docs/HOW_IT_WORKS.md#rules-the-agreement-makes-visible) |
+| To inspect the checker instead of trusting its summary | The verifier recomputes from stored inputs and checks the sealed receipt | [Evidence](./docs/EVIDENCE.md#tests-and-coverage) |
 
-## How it works
+## What Marea is not
 
-See [the actors, rules and workflow](./docs/HOW_IT_WORKS.md#people-and-rights).
+Marea is not a national climate inventory, emissions calculator, registry, certification service, legal opinion or implementation of the Paris Agreement. It has no real-country data, institutional integration, blockchain, payment or external anchor. Its countries, activities, methods, units and quantities are fictional, and the checker cannot establish the truth of those inputs. The transfer's second side is rejected because this prototype does not implement the full adjustment process.
 
 ## Evidence you can open
 
-See [Evidence](./docs/EVIDENCE.md) for the recorded results, test coverage, kernel pin limitation and rerun command.
+The recorded suite contains 25 named tests covering the collision key, valid distinct tracks, origins and methods, aggregate duplication, authorization expiry and ceilings, transfer limits, sealed acceptances and rejections, reports, and independent recomputation. The adversarial phase began with 4 passing infrastructure and kernel-pin checks and 21 behavior checks failing against the empty implementation skeleton; a later mutation sweep confirmed that deliberate breaks in the tested rules were detected.
+
+The recorded green result is 25/25 against Marea's pinned kernel cut, commit `54c20c7`, with the five kernel modules fixed by digest. The installed Vespi kernel is now 0.1.3, so the old pin checks no longer describe the current installed bytes; the re-pin is pending and parts of a run against the current installation are expected to fail. This is the earlier recorded run, not a fresh current-kernel run. The digest pin makes that boundary visible: a changed kernel cannot silently be presented as the tested one. [Evidence](./docs/EVIDENCE.md) explains the record and the limit in detail.
 
 ## Marea, Vespi and Lore Plugin
 
-Marea consumes the Vespi kernel installed by Lore Plugin without modifying the kernel, plugin, hosts or installed versions. See [How it works](./docs/HOW_IT_WORKS.md#a-declaration-step-by-step) for authority and receipt handling.
+Marea consumes the Vespi kernel copy installed by Lore Plugin and uses its authority and receipt mechanisms for bounded declarations, sealed receipts and verification. Marea does not modify the kernel, Lore Plugin, the hosts or installed versions. Its tests check the five-module kernel copy and digests; the detailed relationship is in [How it works](./docs/HOW_IT_WORKS.md#marea-vespi-and-lore-plugin).
 
-## What it does not do, and what is not verified
+## What is not verified
 
-See [Evidence](./docs/EVIDENCE.md) for what the recorded suite establishes, and [Legal and limits](./docs/LEGAL_AND_LIMITS.md) for what is outside the model and remains unverified.
+The agreement cites the Paris Agreement, Article 6.2, and Decision 2/CMA.3, annex, paragraphs 7 and 8, as the source framework. The project imitates a narrow accounting structure, but the implementation has not been checked against the legal text and has not received competent legal review. Marea does not establish compliance, authorization, methodology validity, environmental integrity or a real country's accounting result. See [Legal and limits](./docs/LEGAL_AND_LIMITS.md).
+
+## How to review the project
+
+Start with [How it works](./docs/HOW_IT_WORKS.md), then compare the named checks and recorded runs in [Evidence](./docs/EVIDENCE.md). Read [Legal and limits](./docs/LEGAL_AND_LIMITS.md) before interpreting the prototype as a legal or climate finding. The public repository does not include source code; [Code not included](./CODE_NOT_INCLUDED.md) and [LICENSE](./LICENSE) state the publication and review conditions.
 
 ## Author
 
@@ -85,44 +144,109 @@ See [Evidence](./docs/EVIDENCE.md) for what the recorded suite establishes, and 
 
 <a id="espanol"></a>
 
-**Marea hace visible una entrada contable climática duplicada y deja su motivo en el mismo registro que la primera.**
+**Marea hace visible una entrada contable climática duplicada y deja su motivo junto a la primera entrada en el mismo registro local.**
 
 > **La unidad es el par actividad-año: un mismo hecho puede reconocerse una sola vez.**
 
-Marea es un registro local y un verificador de declaraciones ficticias de reducción climática entre países. Comprueba el origen declarado, la metodología y la autorización concedida por una persona, y mantiene separadas las pistas de métricas distintas. No calcula emisiones.
+## El problema
 
-**Por qué.** Si dos países reconocen la misma reducción, el total global puede quedar inflado. Es una colisión contable, no un error matemático, y los registros separados pueden ocultarla. Consulta [Cómo funciona](./docs/HOW_IT_WORKS.md) para conocer el mecanismo acotado que demuestra Marea.
+Cuando dos países reconocen la misma reducción, el total combinado puede contar dos veces un resultado declarado. La aritmética de cada registro por separado puede ser correcta mientras la contabilidad entre ambos no lo es; si nadie vincula cada declaración con su actividad de origen y su año, la colisión puede quedar oculta.
 
-**Si estás evaluando Find Your Way o Meridian, empieza aquí.**
+Marea explora una respuesta acotada a ese problema. Registra declaraciones ficticias contra un origen local y comprueba si el par actividad-año ya aparece en la misma pista métrica. El rechazo conserva la colisión y una salida para resolverla dentro del propio registro. Marea no calcula emisiones ni decide si ocurrió una reducción real.
 
-1. **Acuerdo, recorrido y ejemplo:** [Cómo funciona](./docs/HOW_IT_WORKS.md).
-2. **Resultados registrados y nombres de pruebas:** [Evidencia](./docs/EVIDENCE.md).
-3. **Marco citado y límites:** [Marco legal y límites](./docs/LEGAL_AND_LIMITS.md).
-4. **Apertura del código y condiciones de revisión:** [Código no incluido](./CODE_NOT_INCLUDED.md) y [LICENSE](./LICENSE).
+## Si estás evaluando Find Your Way o Meridian, empieza aquí
+
+- Lee la base del proyecto y su recorrido. Empieza por [Cómo funciona](./docs/HOW_IT_WORKS.md).
+- Abre el registro de pruebas. Consulta [Evidencia](./docs/EVIDENCE.md).
+- Lee los límites jurídicos y de verificación. Consulta [Marco legal y límites](./docs/LEGAL_AND_LIMITS.md).
+- Revisa las condiciones de publicación. Consulta [Código no incluido](./CODE_NOT_INCLUDED.md) y la [licencia de solo revisión](./LICENSE).
 
 ## En un minuto
 
-Consulta [el ejemplo registrado](./docs/HOW_IT_WORKS.md#un-ejemplo-concreto) para ver la declaración local y la comprobación del duplicado.
+Imagina un registro local con entradas ficticias. Una persona inscribe la actividad de origen de Alba y le concede autoridad con una métrica, un destino, un tope y un vencimiento. Alba declara esa actividad para 2027 con una metodología nombrada y el verificador la acepta. Después, Bruma presenta la misma actividad para el mismo año y la misma métrica. Marea rechaza esa segunda entrada, identifica la declaración anterior de Alba y guarda el rechazo junto a la aceptación. Un lector puede revisar el reporte o auditar ambas entradas sin depender del resumen del ejecutor.
 
-## Por qué Marea
+## Cómo se ve en la práctica
 
-Consulta [el recorrido local](./docs/HOW_IT_WORKS.md#personas-y-derechos) y [lo que Marea no afirma](./docs/LEGAL_AND_LIMITS.md#lo-que-marea-no-afirma).
+El siguiente fragmento sale del recorrido registrado. Todos los países, actividades, metodologías, unidades y cantidades son ficticios; la transcripción es evidencia de una ejecución local documentada, no un resultado contable del mundo real.
+
+```text
+── 3. Alba declara una reducción con su metodología y su unidad: entra
+  estado:   aceptada
+  motivo:   reconocida en la pista tCO2e (guía 2/CMA.3, §8) bajo la autorización aut-alba-ghg
+  ajuste:   lado suma, pista tCO2e (guía 2/CMA.3 §8), años 2027, anclas anc-alba-1
+  recibo:   verified · cobertura anclaje-resuelve, metodologia-declarada, sin-doble-conteo, ajuste-en-pista, autorizacion-vigente
+  anclaje:  pending en stellar:testnet — nada llegó a una red; esto NO está verificado afuera
+
+── 4. Bruma declara reutilizando la misma unidad sobre el mismo hecho: se rechaza
+  estado:   rechazada (unidad-compartida)
+  motivo:   doble conteo por unidad compartida: alba ya reconoció anc-alba-1 (bosque de la cuenca alta) en 2027 con la declaración dec-alba-1, y bruma la declara otra vez en la misma métrica tCO2e y el mismo año: el mismo hecho no se reconoce dos veces
+  evidencia: {"choques":[["anc-alba-1",2027]],"limpio":[],"contra":["dec-alba-1"],"pista":"tCO2e"}
+  salida:   retira la declaración de bruma sobre anc-alba-1, o cambia de actividad: una reducción no puede estar en dos balances a la vez
+  sello:    21eeacc59ed82a8c…
+```
+
+El recorrido también registra un control: dos actividades distintas en la misma métrica y año pueden entrar, y las entradas de pistas métricas distintas pueden entrar en el mismo año. Por eso la clave de colisión es el par actividad-año y no solo el año. La transcripción completa y la evidencia de sesión fresca se explican en [Evidencia](./docs/EVIDENCE.md).
 
 ## Cómo funciona
 
-Consulta [los actores, reglas y el flujo de trabajo](./docs/HOW_IT_WORKS.md#personas-y-derechos).
+Una persona aporta el origen local y una autorización acotada; el país declarante presenta su entrada; Marea comprueba los datos almacenados; y cualquier lector puede inspeccionar el mismo registro de forma independiente.
+
+```text
+PERSONA INSCRIBE ORIGEN ── PERSONA CONCEDE AUTORIDAD ACOTADA
+              │                                 │
+              └────────── PAÍS DECLARA ─────────┘
+                               │
+                               ▼
+      resolver origen · métrica · método · año · cantidad · autoridad
+                         ┌─────┴─────┐
+                         ▼           ▼
+                     aceptada    rechazada + motivo
+                         └─────┬─────┘
+                               ▼
+                un registro local + recibo sellado
+                               │
+                               ▼
+               recálculo independiente + reporte legible
+```
+
+| Actor | Qué puede hacer | Qué muestra el registro | Límite |
+|---|---|---|---|
+| Persona que inscribe un origen | Agregar una actividad, país y métrica al registro local | El origen de una entrada y quién lo inscribió | El registro no demuestra que la actividad o la persona existan |
+| Persona que concede autoridad | Fijar país, métrica, período, tope, destino y vencimiento | Quién otorgó la autoridad y cuáles son sus límites | El agente declarante no puede autorizarse ni exceder lo concedido |
+| País declarante ficticio | Presentar una declaración con origen y metodología | Aceptación o rechazo, con su motivo | Alba, Bruma, Cenal y Duna son ejemplos inventados, no Estados |
+| Verificador de Marea | Recalcular contra el almacén local y sus reglas | Las comprobaciones y evidencia de cada resultado | Comprueba los datos almacenados, no la verdad de una afirmación climática |
+| Lector independiente | Abrir el registro y el reporte; cuando haya código disponible, volver a ejecutar la auditoría | Aceptaciones, rechazos, motivos y comprobaciones de recibos | Sigue dependiendo de datos ficticios y de este modelo limitado |
+
+## Por qué Marea
+
+| Necesitas | Qué te da | Dónde está |
+|---|---|---|
+| Detectar la reutilización de un resultado declarado | La colisión identifica la actividad y el año compartidos y señala la declaración anterior | El registro local y el [recorrido registrado](./docs/HOW_IT_WORKS.md#un-ejemplo-concreto) |
+| Entender por qué se rechazó una entrada | El rechazo conserva motivo, evidencia de colisión y una salida nombrada junto a las entradas aceptadas | El mismo registro y su reporte |
+| Distinguir un origen ausente de un duplicado | Un origen que no resuelve o tiene otra métrica recibe un motivo de verificación; el par actividad-año repetido recibe un motivo de colisión | [Cómo funciona](./docs/HOW_IT_WORKS.md#reglas-que-el-acuerdo-deja-visibles) |
+| Inspeccionar el verificador en vez de confiar en su resumen | Recalcula desde los datos guardados y comprueba el recibo sellado | [Evidencia](./docs/EVIDENCE.md#pruebas-y-cobertura) |
+
+## Qué no es Marea
+
+Marea no es un inventario climático nacional, una calculadora de emisiones, un registro oficial, un servicio de certificación, una opinión jurídica ni una implementación del Acuerdo de París. No tiene datos de países reales, integración institucional, blockchain, pagos ni anclaje externo. Sus países, actividades, métodos, unidades y cantidades son ficticios, y el verificador no puede establecer la verdad de esos datos. El segundo lado de una transferencia se rechaza porque este prototipo no implementa el proceso completo de ajuste.
 
 ## Evidencia que puedes abrir
 
-Consulta [Evidencia](./docs/EVIDENCE.md) para los resultados registrados, la cobertura, el límite de fijación del kernel y el comando de repetición.
+La suite registrada reúne 25 pruebas con nombre sobre la clave de colisión, pistas distintas válidas, orígenes y metodologías, duplicación de agregados, vencimiento y topes de autorizaciones, límites de transferencias, recibos sellados para aceptaciones y rechazos, reportes y recálculo independiente. La fase adversarial empezó con 4 pruebas de infraestructura y fijación de kernel aprobadas y 21 pruebas de comportamiento fallidas contra el esqueleto vacío; un barrido posterior confirmó que la suite detectaba roturas deliberadas de las reglas comprobadas.
+
+El resultado verde registrado es 25/25 contra el corte de kernel fijado por Marea, commit `54c20c7`, con los cinco módulos del kernel fijados por digest. El kernel Vespi instalado ahora es 0.1.3, así que las comprobaciones del pin antiguo ya no describen los bytes instalados hoy; la nueva fijación está pendiente y se espera que algunas partes de una corrida contra la instalación actual fallen. Este es el resultado registrado anterior, no una corrida fresca contra el kernel actual. La fijación por digest hace visible ese límite: un kernel cambiado no puede presentarse en silencio como el que se probó. [Evidencia](./docs/EVIDENCE.md) explica el registro y su límite.
 
 ## Marea, Vespi y Lore Plugin
 
-Marea consume el kernel de Vespi instalado por Lore Plugin sin modificar el kernel, el plugin, los hosts ni las versiones instaladas. Consulta [Cómo funciona](./docs/HOW_IT_WORKS.md#una-declaracion-paso-a-paso) para la autoridad y los recibos.
+Marea consume la copia del kernel de Vespi que instala Lore Plugin y usa sus mecanismos de autoridad y recibos para declaraciones acotadas, recibos sellados y verificación. Marea no modifica el kernel, Lore Plugin, los hosts ni las versiones instaladas. Sus pruebas comprueban la copia de cinco módulos y sus digests; la relación detallada está en [Cómo funciona](./docs/HOW_IT_WORKS.md#marea-vespi-y-lore-plugin).
 
-## Lo que no hace, y lo que no está verificado
+## Lo que no está verificado
 
-Consulta [Evidencia](./docs/EVIDENCE.md) para saber qué demuestra la suite registrada y [Marco legal y límites](./docs/LEGAL_AND_LIMITS.md) para los aspectos fuera del modelo y aún no verificados.
+El acuerdo cita el Acuerdo de París, artículo 6.2, y la Decisión 2/CMA.3, anexo, párrafos 7 y 8, como marco de referencia. El proyecto imita una estructura contable acotada, pero la implementación no se ha contrastado con el texto jurídico ni ha recibido revisión legal competente. Marea no demuestra cumplimiento, autorización, validez metodológica, integridad ambiental ni resultados contables de un país real. Consulta [Marco legal y límites](./docs/LEGAL_AND_LIMITS.md).
+
+## Cómo revisar el proyecto
+
+Empieza por [Cómo funciona](./docs/HOW_IT_WORKS.md) y contrasta los nombres de las comprobaciones y las ejecuciones registradas en [Evidencia](./docs/EVIDENCE.md). Lee [Marco legal y límites](./docs/LEGAL_AND_LIMITS.md) antes de interpretar el prototipo como una conclusión jurídica o climática. El repositorio público no incluye el código fuente; [Código no incluido](./CODE_NOT_INCLUDED.md) y la [LICENSE](./LICENSE) describen las condiciones de publicación y revisión.
 
 ## Autor
 
