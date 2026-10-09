@@ -12,9 +12,7 @@
 </p>
 
 <p align="center"><b>Marea</b> — two countries can report the same climate reduction twice, under two programmes.<br>
-It links where a claim comes from, who may declare it and how it is checked. Evidence: 25/25 tests. Fictional activity and data. Article 6.2 of the Paris Agreement.<br>
-<b>Marea</b> — dos países pueden reportar dos veces la misma reducción climática, bajo dos programas.<br>
-Vincula de dónde viene una afirmación, quién puede declararla y cómo se comprueba. Evidencia: 25/25 pruebas. Actividad y datos ficticios. Artículo 6.2 del Acuerdo de París.</p>
+It links where a claim comes from, who may declare it and how it is checked. Evidence: 25/25 tests. Fictional activity and data. Article 6.2 of the Paris Agreement.</p>
 
 <p align="center">Read in <a href="#english">English</a> or <a href="#espanol">español</a>.</p>
 
@@ -28,6 +26,9 @@ Vincula de dónde viene una afirmación, quién puede declararla y cómo se comp
 <summary><b>Read in English</b></summary>
 
 <a id="english"></a>
+
+<p align="center"><b>Marea</b> — two countries can report the same climate reduction twice, under two programmes.<br>
+It links where a claim comes from, who may declare it and how it is checked. Evidence: 25/25 tests. Fictional activity and data. Article 6.2 of the Paris Agreement.</p>
 
 **Marea makes a duplicate climate-accounting entry visible and keeps its reason beside the first entry in the same local record.**
 
@@ -153,6 +154,9 @@ Start with [How it works](./docs/HOW_IT_WORKS.md), then compare the named checks
 <summary><b>Leer en español</b></summary>
 
 <a id="espanol"></a>
+
+<p align="center"><b>Marea</b> — dos países pueden reportar dos veces la misma reducción climática, bajo dos programas.<br>
+Vincula de dónde viene una afirmación, quién puede declararla y cómo se comprueba. Evidencia: 25/25 pruebas. Actividad y datos ficticios. Artículo 6.2 del Acuerdo de París.</p>
 
 **Marea hace visible una entrada contable climática duplicada y deja su motivo junto a la primera entrada en el mismo registro local.**
 
