@@ -68,7 +68,7 @@ The walkthrough contains a control for the rule's other side. A distinct activit
 
 Marea consumes the Vespi kernel copy installed by Lore Plugin. It uses the kernel's authority and receipt mechanisms so each declaration is checked against a bounded grant and each acceptance or rejection receives a seal that can be verified. The verifier recomputes the declaration from the local store; the receipt is evidence of that bounded operation, not proof that the underlying climate claim is true.
 
-The project pins five kernel modules by digest and checks the module headers and host copies in its recorded suite. Marea consumes those modules; it does not modify the kernel, Lore Plugin, host applications or installed versions. Because the installed kernel can change, the evidence names the tested cut and does not treat the old pin as current. See [Evidence](EVIDENCE.md) for the recorded result and re-pin limitation.
+The project pins the kernel modules by digest against the copy vendored inside the project (Vespi 0.1.5, commit ed559e8, eight modules declared in its SOURCE.md) and checks the module headers in its recorded suite. Marea consumes those modules; it does not modify the kernel, Lore Plugin, host applications or installed versions. The evidence names the tested cut; the earlier pin to Vespi 0.1.3 is history, not the current state. See [Evidence](EVIDENCE.md) for the recorded result and re-pin limitation.
 
 ## What this proves, and what it does not
 
@@ -148,7 +148,7 @@ El recorrido incluye un control para el otro lado de la regla. Una actividad dis
 
 Marea consume la copia del kernel de Vespi que instala Lore Plugin. Usa los mecanismos del kernel para que cada declaración se compruebe contra una autorización acotada y cada aceptación o rechazo reciba un sello verificable. El verificador vuelve a calcular la declaración desde el almacén local; el recibo prueba esa operación acotada, no la verdad de la afirmación climática subyacente.
 
-El proyecto fija por digest cinco módulos del kernel y comprueba los encabezados de esos módulos y las copias de los hosts en la suite registrada. Marea consume esos módulos; no modifica el kernel, Lore Plugin, las aplicaciones anfitrionas ni sus versiones instaladas. Como el kernel instalado puede cambiar, la evidencia identifica el corte probado y no presenta el pin anterior como si fuera actual. Consulta [Evidencia](EVIDENCE.md) para el resultado registrado y el límite de la nueva fijación.
+El proyecto fija por digest los módulos del kernel contra la copia vendorizada dentro del proyecto (Vespi 0.1.5, commit ed559e8, ocho módulos declarados en su SOURCE.md) y comprueba los encabezados de esos módulos en la suite registrada. Marea consume esos módulos; no modifica el kernel, Lore Plugin, las aplicaciones anfitrionas ni sus versiones instaladas. La evidencia identifica el corte probado; el pin anterior a Vespi 0.1.3 es historia, no el estado actual. Consulta [Evidencia](EVIDENCE.md) para el resultado registrado y el límite de la nueva fijación.
 
 ## Qué demuestra y qué no
 

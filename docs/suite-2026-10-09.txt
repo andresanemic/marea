@@ -1,0 +1,36 @@
+Suite capture — marea — 2026-10-09
+Command: node --test test/*.test.js (clean clone of commit fa44407, empty HOME, no network)
+Node: v24.15.0 · Kernel: Vespi 0.1.5, commit ed559e83c976dd6e6a379a5510db776206f670b4, copied in vendor/vespi-kernel
+Summary: tests 25 pass 25 fail 0 cancelled 0 skipped 0 todo 0 
+
+✔ la copia vendorizada declara los ocho módulos del núcleo (3.4739ms)
+✔ el núcleo que consume Marea es el corte fijado, módulo por módulo (112.5295ms)
+✔ la copia vendorizada coincide con su SOURCE.md, byte a byte (5.9853ms)
+✔ el encabezado de los ocho módulos declara el mismo commit (5.8463ms)
+✔ un segundo país que declara la misma actividad en la misma métrica es rechazado, y el motivo nombra al primero (112.7839ms)
+✔ el solapamiento parcial de un año también es doble conteo, y el motivo nombra el año (53.4863ms)
+✔ el segundo lado de una transferencia internacional se rechaza en vez de contarse dos veces (41.5032ms)
+✔ una reducción sin metodología declarada no es comparable y se rechaza nombrando qué falta (22.5065ms)
+✔ una reducción anclada a una actividad que el registro no tiene se rechaza por verificable, no por inválida (23.3003ms)
+✔ una reducción que se apoya en un anclaje de otra métrica tampoco resuelve (21.2368ms)
+✔ una declaración que suma un conjunto junto con sus propias partes se rechaza nombrando la actividad contada dos veces (25.6477ms)
+✔ una agregación declarada una sola vez sí entra, con la cantidad declarada (27.5748ms)
+✔ un compromiso con el reloj vencido se rechaza nombrando la hora en que murió (20.6033ms)
+✔ pasada la hora, la autorización no revive sola: la misma declaración sigue rechazada (30.4445ms)
+✔ CONTROL: dos países en métricas legítimamente distintas entran ambos, y la clave de la partida no es el año (49.5385ms)
+✔ una declaración que pasa el techo autorizado se rechaza nombrando lo que queda (28.9782ms)
+✔ una transferencia que cita un origen rechazado se rechaza por eso, no por doble conteo (18.7953ms)
+✔ el rechazo también queda sellado por el núcleo, no solo por el registro (17.159ms)
+✔ el rechazo queda escrito en el mismo registro y en el mismo archivo que la aceptación (28.5246ms)
+✔ una entrada aceptada lleva un recibo que verifica, y editarlo a mano lo rompe (22.043ms)
+✔ el reporte muestra, entrada por entrada, por qué cada una entró o no (31.4917ms)
+✔ una tercera parte audita sin creer a nadie: un verificador que solo cree al ejecutor no pasa la auditoría (22.0991ms)
+✔ la auditoría de una entrada rechazada también pasa, y la de un recibo ajeno no (20.553ms)
+✔ el verificador rechaza un doble conteo que la puerta no vio, porque no confía en ella (33.3745ms)
+✔ el verificador rechaza un efecto cuyo ajuste se atribuyó al párrafo equivocado de la guía (21.7255ms)
+ℹ tests 25
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0

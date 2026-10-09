@@ -5,10 +5,10 @@
 <p align="center">
   <a href="#english"><img src="https://img.shields.io/badge/status-documented_prototype-D7B698?style=for-the-badge&labelColor=07111A" alt="Status: documented prototype"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/license-review--only-D7B698?style=for-the-badge&labelColor=07111A" alt="License: review only"></a>
-  <a href="./docs/EVIDENCE.md"><img src="https://img.shields.io/badge/suite-25_tests-D7B698?style=for-the-badge&labelColor=07111A" alt="Suite: 25 tests"></a>
+  <a href="./docs/EVIDENCE.md"><img src="https://img.shields.io/badge/suite-25_tests_pass-D7B698?style=for-the-badge&labelColor=07111A" alt="Suite: 25 tests, all passing"></a>
   <a href="./docs/HOW_IT_WORKS.md"><img src="https://img.shields.io/badge/agreement-written_before_code-D7B698?style=for-the-badge&labelColor=07111A" alt="Agreement written before code"></a>
   <a href="https://github.com/andresanemic/vespi"><img src="https://img.shields.io/badge/built_with-Vespi_%C2%B7_Lore_Plugin-E0C170?style=for-the-badge&labelColor=07111A" alt="Built with Vespi and Lore Plugin"></a>
-  <a href="https://github.com/andresanemic/vespi/tree/ed559e83c976dd6e6a379a5510db776206f670b4"><img src="https://img.shields.io/badge/kernel-0.1.5_release-ed559e8?style=for-the-badge&labelColor=07111A&color=E0C170" alt="Kernel: 0.1.5 release (commit ed559e8)"></a>
+  <a href="https://github.com/andresanemic/vespi/tree/ed559e83c976dd6e6a379a5510db776206f670b4"><img src="https://img.shields.io/badge/kernel-0.1.5_pinned-ed559e8?style=for-the-badge&labelColor=07111A&color=E0C170" alt="Kernel: 0.1.5, pinned (commit ed559e8)"></a>
 </p>
 
 <p align="center">Read in <a href="#english">English</a> or <a href="#espanol">español</a>.</p>
@@ -112,13 +112,15 @@ Marea is not a national climate inventory, emissions calculator, registry, certi
 
 ## Evidence you can open
 
-The recorded suite contains 25 named tests covering the collision key, valid distinct tracks, origins and methods, aggregate duplication, authorization expiry and ceilings, transfer limits, sealed acceptances and rejections, reports, and independent recomputation. The adversarial phase began with 4 passing infrastructure and kernel-pin checks and 21 behavior checks failing against the empty implementation skeleton; a later mutation sweep confirmed that deliberate breaks in the tested rules were detected.
+The recorded suite runs 25 named tests covering the collision key, valid distinct tracks, origins and methods, aggregate duplication, authorization expiry and ceilings, transfer limits, sealed acceptances and rejections, reports, and independent recomputation. The adversarial phase began with 4 passing infrastructure and kernel-pin checks and 21 behavior checks that did not pass against the empty implementation skeleton; a later mutation sweep confirmed that deliberate breaks in the tested rules were detected.
 
-The recorded green result is 25/25 against Marea's pinned kernel cut, commit `54c20c7`, with the five kernel modules fixed by digest. The installed Vespi kernel is now 0.1.3, so the old pin checks no longer describe the current installed bytes; the re-pin is pending and parts of a run against the current installation are expected to fail. Marea now targets kernel **0.1.5 release** (commit `ed559e8`); the digest table remains pending until a deliberate project re-pin and fresh tests are completed. This is the earlier recorded run, not a fresh current-kernel run. The digest pin makes that boundary visible: a changed kernel cannot silently be presented as the tested one. [Evidence](./docs/EVIDENCE.md) explains the record and the limit in detail.
+The 2026-10-09 capture in [`docs/suite-2026-10-09.txt`](./docs/suite-2026-10-09.txt) reports **25 tests, 25 pass, 0 not passing and 0 skipped** on Node v24.15.0, run in a clean clone of the private project with an empty HOME and no network. The kernel checks verify the Vespi 0.1.5 copy (commit `ed559e83c976dd6e6a379a5510db776206f670b4`) that the project vendors under `vendor/vespi-kernel`, module by module and digest by digest, against that copy's own `SOURCE.md`. The digest pin stays: a changed kernel cannot be presented in silence as the tested one.
+
+The earlier capture, dated 2026-10-03, was red for one reason: the project was then pinned to an older kernel cut (Vespi 0.1.3), so its pin checks no longer described the installed bytes. That re-pin is done. What this run accredits is the local mechanism and its recorded boundary, not a finished product, not an audit and not readiness for use. [Evidence](./docs/EVIDENCE.md) records the run and its limits.
 
 ## Marea, Vespi and Lore Plugin
 
-Marea consumes the Vespi kernel copy installed by Lore Plugin and uses its authority and receipt mechanisms for bounded declarations, sealed receipts and verification. Marea does not modify the kernel, Lore Plugin, the hosts or installed versions. Its tests check the five-module kernel copy and digests; the detailed relationship is in [How it works](./docs/HOW_IT_WORKS.md#marea-vespi-and-lore-plugin).
+Marea consumes the Vespi kernel copy installed by Lore Plugin and uses its authority and receipt mechanisms for bounded declarations, sealed receipts and verification. Marea does not modify the kernel, Lore Plugin, the hosts or installed versions. Its tests check the kernel copy and its digests; the detailed relationship is in [How it works](./docs/HOW_IT_WORKS.md#marea-vespi-and-lore-plugin).
 
 ## What is not verified
 
@@ -233,13 +235,15 @@ Marea no es un inventario climático nacional, una calculadora de emisiones, un 
 
 ## Evidencia que puedes abrir
 
-La suite registrada reúne 25 pruebas con nombre sobre la clave de colisión, pistas distintas válidas, orígenes y metodologías, duplicación de agregados, vencimiento y topes de autorizaciones, límites de transferencias, recibos sellados para aceptaciones y rechazos, reportes y recálculo independiente. La fase adversarial empezó con 4 pruebas de infraestructura y fijación de kernel aprobadas y 21 pruebas de comportamiento fallidas contra el esqueleto vacío; un barrido posterior confirmó que la suite detectaba roturas deliberadas de las reglas comprobadas.
+La suite registrada reúne 25 pruebas con nombre sobre la clave de colisión, pistas distintas válidas, orígenes y metodologías, duplicación de agregados, vencimiento y topes de autorizaciones, límites de transferencias, recibos sellados para aceptaciones y rechazos, reportes y recálculo independiente. La fase adversarial empezó con 4 pruebas de infraestructura y fijación de kernel aprobadas y 21 pruebas de comportamiento que no pasaron contra el esqueleto vacío; un barrido posterior confirmó que la suite detectaba roturas deliberadas de las reglas comprobadas.
 
-El resultado verde registrado es 25/25 contra el corte de kernel fijado por Marea, commit `54c20c7`, con los cinco módulos del kernel fijados por digest. El kernel Vespi instalado ahora es 0.1.3, así que las comprobaciones del pin antiguo ya no describen los bytes instalados hoy; la nueva fijación está pendiente y se espera que algunas partes de una corrida contra la instalación actual fallen. Marea ahora apunta al kernel **0.1.5 publicado** (commit `ed559e8`); la tabla de digest sigue pendiente hasta que se refije deliberadamente el proyecto y se repitan las pruebas. Este es el resultado registrado anterior, no una corrida fresca contra el kernel actual. La fijación por digest hace visible ese límite: un kernel cambiado no puede presentarse en silencio como el que se probó. [Evidencia](./docs/EVIDENCE.md) explica el registro y su límite.
+La captura del 2026-10-09 en [`docs/suite-2026-10-09.txt`](./docs/suite-2026-10-09.txt) informa **25 pruebas, 25 aprobadas, 0 sin aprobar y 0 omitidas** sobre Node v24.15.0, corrida en un clon limpio del proyecto privado, con HOME vacío y sin red. Las comprobaciones del kernel verifican la copia de Vespi 0.1.5 (commit `ed559e83c976dd6e6a379a5510db776206f670b4`) que el proyecto lleva en `vendor/vespi-kernel`, módulo por módulo y digest por digest, contra el `SOURCE.md` de esa misma copia. La fijación por digest se mantiene: un kernel cambiado no puede presentarse en silencio como el que se probó.
+
+La captura anterior, del 2026-10-03, estuvo en rojo por una única razón: el proyecto estaba fijado entonces a un corte viejo del kernel (Vespi 0.1.3), así que sus comprobaciones de pin ya no describían los bytes instalados. Ese re-pin ya está hecho. Lo que acredita esta corrida es el mecanismo local y su límite registrado, no un producto terminado, ni una auditoría, ni preparación para el uso. [Evidencia](./docs/EVIDENCE.md) registra la corrida y sus límites.
 
 ## Marea, Vespi y Lore Plugin
 
-Marea consume la copia del kernel de Vespi que instala Lore Plugin y usa sus mecanismos de autoridad y recibos para declaraciones acotadas, recibos sellados y verificación. Marea no modifica el kernel, Lore Plugin, los hosts ni las versiones instaladas. Sus pruebas comprueban la copia de cinco módulos y sus digests; la relación detallada está en [Cómo funciona](./docs/HOW_IT_WORKS.md#marea-vespi-y-lore-plugin).
+Marea consume la copia del kernel de Vespi que instala Lore Plugin y usa sus mecanismos de autoridad y recibos para declaraciones acotadas, recibos sellados y verificación. Marea no modifica el kernel, Lore Plugin, los hosts ni las versiones instaladas. Sus pruebas comprueban la copia del kernel y sus digests; la relación detallada está en [Cómo funciona](./docs/HOW_IT_WORKS.md#marea-vespi-y-lore-plugin).
 
 ## Lo que no está verificado
 
