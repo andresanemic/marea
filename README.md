@@ -122,6 +122,8 @@ The earlier capture, dated 2026-10-03, was red for one reason: the project was t
 
 Marea consumes the Vespi kernel copy installed by Lore Plugin and uses its authority and receipt mechanisms for bounded declarations, sealed receipts and verification. Marea does not modify the kernel, Lore Plugin, the hosts or installed versions. Its tests check the kernel copy and its digests; the detailed relationship is in [How it works](./docs/HOW_IT_WORKS.md#marea-vespi-and-lore-plugin).
 
+**What this relationship means.** The project was built with Lore Plugin's method (its agreement and criterion live in the project, in `acuerdo.md` and `lore/`), and its operations, authority and receipts run on the Vespi kernel 0.1.5, in the pinned copy that Lore Plugin 2.5.1 distributes (`skills/vespi/core/kernel`). That copy sits in the project as `vendor/vespi-kernel` and the suite verifies it against its `SOURCE.md`. Lore Plugin does not run inside the project. This project does not use the kernel's newer capabilities (Stellar pubnet anchors, live x402 settlement, the ZK verifier, emergency access); it exercises the core of operations, authority and receipts.
+
 ## What is not verified
 
 The agreement cites the Paris Agreement, Article 6.2, and Decision 2/CMA.3, annex, paragraphs 7 and 8, as the source framework. The project imitates a narrow accounting structure, but the implementation has not been checked against the legal text and has not received competent legal review. Marea does not establish compliance, authorization, methodology validity, environmental integrity or a real country's accounting result. See [Legal and limits](./docs/LEGAL_AND_LIMITS.md).
@@ -244,6 +246,8 @@ La captura anterior, del 2026-10-03, estuvo en rojo por una única razón: el pr
 ## Marea, Vespi y Lore Plugin
 
 Marea consume la copia del kernel de Vespi que instala Lore Plugin y usa sus mecanismos de autoridad y recibos para declaraciones acotadas, recibos sellados y verificación. Marea no modifica el kernel, Lore Plugin, los hosts ni las versiones instaladas. Sus pruebas comprueban la copia del kernel y sus digests; la relación detallada está en [Cómo funciona](./docs/HOW_IT_WORKS.md#marea-vespi-y-lore-plugin).
+
+**Qué significa esta relación.** El proyecto se construyó con el método de Lore Plugin (su acuerdo y su criterio viven en el proyecto, en `acuerdo.md` y `lore/`), y sus operaciones, autoridad y recibos corren sobre el kernel de Vespi 0.1.5, en la copia fijada que distribuye Lore Plugin 2.5.1 (`skills/vespi/core/kernel`). Esa copia está en el proyecto como `vendor/vespi-kernel` y la suite la verifica contra su `SOURCE.md`. Lore Plugin no corre dentro del proyecto. Este proyecto no usa las capacidades nuevas del kernel (anclas Stellar pubnet, liquidación x402 en vivo, el verificador ZK, el acceso de emergencia); ejerce el núcleo de operaciones, autoridad y recibos.
 
 ## Lo que no está verificado
 
