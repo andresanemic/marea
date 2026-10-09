@@ -11,6 +11,11 @@
   <a href="https://github.com/andresanemic/vespi/tree/ed559e83c976dd6e6a379a5510db776206f670b4"><img src="https://img.shields.io/badge/kernel-0.1.5_pinned-ed559e8?style=for-the-badge&labelColor=07111A&color=E0C170" alt="Kernel: 0.1.5, pinned (commit ed559e8)"></a>
 </p>
 
+<p align="center"><b>Marea</b> — two countries can report the same climate reduction twice, under two programmes.<br>
+It links where a claim comes from, who may declare it and how it is checked. Evidence: 25/25 tests. Fictional activity and data. Article 6.2 of the Paris Agreement.<br>
+<b>Marea</b> — dos países pueden reportar dos veces la misma reducción climática, bajo dos programas.<br>
+Vincula de dónde viene una afirmación, quién puede declararla y cómo se comprueba. Evidencia: 25/25 pruebas. Actividad y datos ficticios. Artículo 6.2 del Acuerdo de París.</p>
+
 <p align="center">Read in <a href="#english">English</a> or <a href="#espanol">español</a>.</p>
 
 <p align="center">Marea is a local, documented prototype for making one narrow accounting collision visible: the same fictional activity-year pair declared twice.</p>
