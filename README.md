@@ -1,6 +1,8 @@
-[![Marea: una actividad, un año, una sola partida](./assets/cover.png)](./assets/cover.png)
+<p align="center">
+  <a href="./assets/cover.png"><img src="./assets/cover.png" alt="Marea: one activity, one year, one claim" width="100%"></a>
+</p>
 
-# Marea
+<h1 align="center">Marea</h1>
 
 <p align="center">
   <a href="#english"><img src="https://img.shields.io/badge/status-documented_prototype-D7B698?style=for-the-badge&labelColor=07111A" alt="Status: documented prototype"></a>
@@ -16,9 +18,10 @@ It links where a claim comes from, who may declare it and how it is checked. Evi
 
 <p align="center">Read in <a href="#english">English</a> or <a href="#espanol">español</a>.</p>
 
-<p align="center">Marea is a local, documented prototype for making one narrow accounting collision visible: the same fictional activity-year pair declared twice.</p>
-
 <p align="center">This public repository contains the agreement, documentation and recorded evidence. Source code is not included; the publication and review conditions are in <a href="./CODE_NOT_INCLUDED.md">Code not included</a> and <a href="./LICENSE">LICENSE</a>.</p>
+
+<p align="center"><b>We’re applying to the Find Your Way hackathon and plan to participate in Meridian.</b></p>
+<p align="center"><b>For judges:</b> <a href="./docs/HOW_IT_WORKS.md">How it works</a> · <a href="./docs/EVIDENCE.md">Evidence</a> · <a href="./docs/LEGAL_AND_LIMITS.md">Limits</a> · <a href="./CODE_NOT_INCLUDED.md">Source and review terms</a>.<br>This public snapshot contains documentation and evidence, not runnable source.</p>
 
 ---
 
@@ -26,9 +29,6 @@ It links where a claim comes from, who may declare it and how it is checked. Evi
 <summary><b>Read in English</b></summary>
 
 <a id="english"></a>
-
-<p align="center"><b>Marea</b> — two countries can report the same climate reduction twice, under two programmes.<br>
-It links where a claim comes from, who may declare it and how it is checked. Evidence: 25/25 tests. Fictional activity and data. Article 6.2 of the Paris Agreement.</p>
 
 **Marea makes a duplicate climate-accounting entry visible and keeps its reason beside the first entry in the same local record.**
 
@@ -39,13 +39,6 @@ It links where a claim comes from, who may declare it and how it is checked. Evi
 When two countries recognize the same reduction, a combined total can count one claimed result twice. The arithmetic in each separate record may be correct while the accounting across both is not; unless someone links each declaration back to its origin activity and year, the collision can remain hidden.
 
 Marea explores one small response to that problem. It records fictional declarations against a local origin and checks whether the activity-year pair already appears in the same metric track. A rejection carries the collision and a way to resolve it in the record itself. Marea does not calculate emissions or decide whether a real reduction happened.
-
-## If you are judging Find Your Way or Meridian, start here
-
-- Read the project foundation and its walkthrough. Start with [How it works](./docs/HOW_IT_WORKS.md).
-- Open the test record. See [Evidence](./docs/EVIDENCE.md).
-- Read the legal and verification limits. See [Legal and limits](./docs/LEGAL_AND_LIMITS.md).
-- Review the publication conditions. See [Code not included](./CODE_NOT_INCLUDED.md) and the [review-only license](./LICENSE).
 
 ## In one minute
 
@@ -152,6 +145,8 @@ Start with [How it works](./docs/HOW_IT_WORKS.md), then compare the named checks
 
 <details>
 <summary><b>Leer en español</b></summary>
+
+<p align="center"><b>Postulamos a la hackatón Find Your Way y planeamos participar en Meridian.</b></p>
 
 <a id="espanol"></a>
 
