@@ -14,7 +14,7 @@ All countries, activities, methodologies, units and amounts are invented. The re
 | Person who authorizes a declaration | Grant authority for a named country, metric, period, amount ceiling, destination and expiry | Who granted the authority and its limits | The declaring agent cannot authorize itself; the grant does not extend beyond its scope or clock |
 | Declaring country | Submit a declaration against an origin and stated methodology | Whether it entered or was rejected, and why | Alba, Bruma, Cenal and Duna are fictional examples, not states |
 | Marea checker | Recalculate results from the local store | Which checks passed and what evidence caused a decision | It checks stored inputs and rules, not the truth of climate claims |
-| Independent reader | Open the record and report, or rerun the audit when code is available | Stored acceptances, rejections, reasons and receipt checks | The reader still depends on fictional inputs and this limited model |
+| Independent reader | Open the record and report, or rerun the audit from the source in this repository | Stored acceptances, rejections, reasons and receipt checks | The reader still depends on fictional inputs and this limited model |
 
 The people who supply entries and authority are distinct roles in the model. A declaration records who granted its authority, its allowed scope and its expiry; it does not treat an agent's own declaration as permission.
 
@@ -94,7 +94,7 @@ Todos los países, actividades, metodologías, unidades y cantidades son inventa
 | Persona que autoriza una declaración | Conceder autoridad para un país, métrica, período, tope, destino y vencimiento | Quién concedió la autoridad y cuáles son sus límites | El agente declarante no puede autorizarse; el permiso no excede su alcance ni su plazo |
 | País declarante | Presentar una declaración contra un origen y una metodología declarada | Si la declaración entró o fue rechazada, y por qué | Alba, Bruma, Cenal y Duna son ejemplos ficticios, no Estados |
 | Verificador de Marea | Recalcular los resultados desde el almacén local | Qué comprobaciones pasaron y qué evidencia produjo la decisión | Comprueba los datos y las reglas almacenadas, no la verdad de las afirmaciones climáticas |
-| Lector independiente | Abrir el registro y el reporte, o volver a ejecutar la auditoría cuando haya código disponible | Aceptaciones, rechazos, motivos y comprobaciones de recibos | Sigue dependiendo de datos ficticios y de este modelo limitado |
+| Lector independiente | Abrir el registro y el reporte, o volver a ejecutar la auditoría con el código de este repositorio | Aceptaciones, rechazos, motivos y comprobaciones de recibos | Sigue dependiendo de datos ficticios y de este modelo limitado |
 
 En el modelo, quien aporta los datos y quien concede la autorización cumplen funciones distintas. Cada declaración registra quién otorgó la autoridad, su alcance y vencimiento; la declaración del agente no se considera permiso para sí mismo.
 

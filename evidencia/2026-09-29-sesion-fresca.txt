@@ -1,0 +1,98 @@
+# Marea — prueba de uso en sesion fresca, 2026-09-29
+
+Proceso nuevo de Node, registro vacio en un directorio temporal, y el nucleo que se carga es la
+copia VENDORIZADA que Lore Plugin instalo en los tres hosts. La salida es literal.
+
+```
+=== SESION FRESCA ÔÇö 2026-09-29T18:12:58.097Z
+proceso nuevo de Node, registro nuevo en C:\Users\andre\AppData\Local\Temp\marea-sesion-fresca-H8YE0Y
+registro antes de empezar: false
+
+--- que nucleo se carga de verdad
+  kit:   @andresanemic/lore-plugin 2.4.9-rc.5
+  copia: C:\Users\andre\.claude\plugins\cache\lore-plugin\lore\2.4.9-rc.5\skills\vespi\core\kernel
+  es la copia INSTALADA en el host y no el arbol de desarrollo: true
+  authority.js    56ce8adf6f414fbb  kit declara 56ce8adf6f414fbb  calza
+  continuity.js   ceba712aa3d9300a  kit declara ceba712aa3d9300a  calza
+  delegation.js   677249e761f29091  kit declara 677249e761f29091  calza
+  operation.js    20a465e1f5837554  kit declara 20a465e1f5837554  calza
+  receipt.js      adc5cabcf31d5ca7  kit declara adc5cabcf31d5ca7  calza
+
+--- la terminal, de verdad, operada por alguien que no sabe nada del nucleo
+  $ marea ancla --id anc-1 --pais alba --metrica tCO2e --actividad bosque de la cuenca alta --por irene
+      anclaje anc-1: bosque de la cuenca alta ÔÇö alba, m├®trica tCO2e, inscrito por irene
+      -> la persona inscribe la actividad de origen  [codigo 0]
+
+  $ marea autorizar --id aut-alba --pais alba --metrica tCO2e --destino NDC --cantidad 50000 --vence 2026-12-01T00:00:00.000Z --por irene
+      autorizaci├│n aut-alba: alba puede declarar hasta 50000 tCO2e hacia NDC, hasta 2026-12-01T00:00:00.000Z, otorgada por irene
+      -> Alba autoriza su compromiso, con reloj y techo  [codigo 0]
+
+  $ marea autorizar --id aut-bruma --pais bruma --metrica tCO2e --destino NDC --cantidad 50000 --vence 2026-12-01T00:00:00.000Z --por joel
+      autorizaci├│n aut-bruma: bruma puede declarar hasta 50000 tCO2e hacia NDC, hasta 2026-12-01T00:00:00.000Z, otorgada por joel
+      -> Bruma, otro pais, autoriza el suyo  [codigo 0]
+
+  $ marea declarar --clave d1 --pais alba --metrica tCO2e --anclaje anc-1 --metodologia inv-v3 --anios 2027 --cantidad 1200 --destino NDC
+      declaraci├│n ┬½d1┬╗ de alba: 1200 tCO2e hacia NDC, anclada en anc-1, a├▒os 2027
+        estado:   aceptada
+        motivo:   reconocida en la pista tCO2e (gu├¡a 2/CMA.3, ┬º8) bajo la autorizaci├│n aut-alba
+        evidencia: {"plano":["anc-1"],"anios":[2027],"autorizacion":"aut-alba","cobertura":["anclaje-resuelve","metodologia-declarada","sin-doble-conteo","ajuste-en-pista","autorizacion-vigente"]}
+        ajuste:   lado suma, pista tCO2e (gu├¡a 2/CMA.3 ┬º8), a├▒os 2027, anclas anc-1
+        sello:    3bca052552e2cdb2ÔÇª
+        recibo:   verified ┬À anclaje pending ÔÇö nada lleg├│ a una red; esta l├¡nea dice que eso NO se verific├│ afuera
+        cobertura: anclaje-resuelve, metodologia-declarada, sin-doble-conteo, ajuste-en-pista, autorizacion-vigente
+      -> ALBA DECLARA Y ENTRA  [codigo 0]
+
+  $ marea declarar --clave d2 --pais bruma --metrica tCO2e --anclaje anc-1 --metodologia fem-2024 --anios 2027 --cantidad 900 --destino NDC
+      declaraci├│n ┬½d2┬╗ de bruma: 900 tCO2e hacia NDC, anclada en anc-1, a├▒os 2027
+        estado:   rechazada (unidad-compartida)
+        motivo:   doble conteo por unidad compartida: alba ya reconoci├│ anc-1 (bosque de la cuenca alta) en 2027 con la declaraci├│n d1, y bruma la declara otra vez en la misma m├®trica tCO2e y el mismo a├▒o: el mismo hecho no se reconoce dos veces
+        evidencia: {"choques":[["anc-1",2027]],"limpio":[],"contra":["d1"],"pista":"tCO2e"}
+        salida:   retira la declaraci├│n de bruma sobre anc-1, o cambia de actividad: una reducci├│n no puede estar en dos balances a la vez
+        sello:    3aed446ed56bc83eÔÇª
+        recibo:   blocked ┬À anclaje pending ÔÇö nada lleg├│ a una red; esta l├¡nea dice que eso NO se verific├│ afuera
+        cobertura:
+      -> BRUMA REUTILIZA LA MISMA UNIDAD Y SE RECHAZA  [codigo 1]
+
+  $ marea reporte
+      
+      d1  aceptada
+        motivo:    reconocida en la pista tCO2e (gu├¡a 2/CMA.3, ┬º8) bajo la autorizaci├│n aut-alba
+        ajuste:    lado suma en la pista tCO2e (gu├¡a 2/CMA.3 ┬º8), a├▒os 2027
+        sello:     verifica (3bca052552e2cdb2ÔÇª)  recibo: verified
+      
+      d2  rechazada (unidad-compartida)
+        motivo:    doble conteo por unidad compartida: alba ya reconoci├│ anc-1 (bosque de la cuenca alta) en 2027 con la declaraci├│n d1, y bruma la declara otra vez en la misma m├®trica tCO2e y el mismo a├▒o: el mismo hecho no se reconoce dos veces
+        salida:    retira la declaraci├│n de bruma sobre anc-1, o cambia de actividad: una reducci├│n no puede estar en dos balances a la vez
+        sello:     verifica (3aed446ed56bc83eÔÇª)  recibo: blocked
+      -> el reporte, que se lee sin ejecutar Marea  [codigo 0]
+
+  $ marea auditar --clave d2
+      d2: auditor├¡a independiente pasa
+        rechazada por unidad-compartida, y el almac├®n vuelve a dar el mismo motivo
+      -> la tercera parte audita el rechazo, sin creer a nadie  [codigo 0]
+
+  $ marea auditar --clave d1
+      d1: auditor├¡a independiente pasa
+        aceptada, sellada y verificada: el almac├®n, la autorizaci├│n y el recibo dicen lo mismo
+        comprobaciones: anclaje-resuelve, metodologia-declarada, sin-doble-conteo, ajuste-en-pista, autorizacion-vigente
+      -> y audita la aceptacion  [codigo 0]
+
+--- el registro crudo, tal como lo abriria un editor de texto
+  {"tipo":"ancla","id":"anc-1","pais":"alba","metrica":"tCO2e","actividad":"bosque de la cuenca alta","componentes":[],"inscrito_por":"irene","inscrito_en":"2026-09-29T18:12:58.160Z"}
+  {"tipo":"autorizacion","id":"aut-alba","pais":"alba","metrica":"tCO2e","destino":"NDC","cantidad":"50000","vence":"2026-12-01T00:00:00.000Z","otorgada_por":"irene","otorgada_en":"2026-09-29T18:12:58.224Z"}
+  {"tipo":"autorizacion","id":"aut-bruma","pais":"bruma","metrica":"tCO2e","destino":"NDC","cantidad":"50000","vence":"2026-12-01T00:00:00.000Z","otorgada_por":"joel","otorgada_en":"2026-09-29T18:12:58.287Z"}
+  {"tipo":"efecto","clave":"d1","autorizacion":"aut-alba","cuerpo":{"clave":"d1","pais":"alba","metrica":"tCO2e","pista":"tCO2e","parrafo":"8","anclaje":"anc-1","plano":[{"anclaje":"anc-1","metrica":"tCO2e"}],"metodologia":"inv-v3","anios":[2027],"cantidad":"1200","destino":"NDC","transferido_de":null,"en":"2026-09-29T18:12:58.353Z"}}
+  {"tipo":"recibo","clave":"d1","recibo":{"status":"verified","operation":{"id":"op-mumzv78w-0","goal":"alba declara 1200 tCO2e hacia NDC"},"action":"marea:declarar","capability":"marea:declarar","authority":{"grants":[{"asset":"metrica:tCO2e","maxAmount":"50000","to":"destino:NDC","expiresAt":"2026-12-01T00:00:00.000Z"}],"exercised":[{"asset":"metrica:tCO2e","maxAmount":"1200","to":"destino:NDC"}],"approval":"preauthorized"},"outcome":"verified","evidence":{"operationId":"d1","type":"efecto","status":"reconocido","amount":"1200","code":"cff6f046f0b5434b5c1df9a2b5b07ef80c17c6816c269c5615d4bc67e9aa7c77"},"verification":{"verified":true,"checks":{"anclaje-resuelve":true,"metodologia-declarada":true,"sin-doble-conteo":true,"ajuste-en-pista":true,"autorizacion-vigente":true},"reason":"recomputado desde el almac├®n: 1 actividad(es) en la pista tCO2e, que es la del ┬º8 de la gu├¡a 2/CMA.3"},"coverage":["anclaje-resuelve","metodologia-declarada","sin-doble-conteo","ajuste-en-pista","autorizacion-vigente"],"notCovered":["external anchor"],"anchor":{"status":"pending","network":"stellar:testnet"},"detail":null,"at":"2026-09-29T18:12:58.360Z","digest":"907ca2c77be6952c2510a8bf8f4fad2694235c20e632c30fb47d7321ff974cc7"}}
+  {"tipo":"aceptacion","clave":"d1","estado":"aceptada","codigo":null,"motivo":"reconocida en la pista tCO2e (gu├¡a 2/CMA.3, ┬º8) bajo la autorizaci├│n aut-alba","evidencia":{"plano":["anc-1"],"anios":[2027],"autorizacion":"aut-alba","cobertura":["anclaje-resuelve","metodologia-declarada","sin-doble-conteo","ajuste-en-pista","autorizacion-vigente"]},"ajuste":{"lado":"suma","pista":"tCO2e","parrafo":"8","anclajes":["anc-1"],"anios":[2027],"cantidad":"1200","destino":"NDC","autorizacion":"aut-alba"},"salida":null,"declaracion":{"clave":"d1","pais":"alba","metrica":"tCO2e","anclaje":"anc-1","metodologia":"inv-v3","anios":[2027],"cantidad":"1200","destino":"NDC","componentes":[]},"en":"2026-09-29T18:12:58.360Z"}
+  {"tipo":"sello","clave":"d1","digest":"3bca052552e2cdb2d70c53f5e2a409437f83eb97cc4e36d166f23bac99605d14"}
+  {"tipo":"recibo","clave":"d2","recibo":{"status":"blocked","operation":{"id":"op-mumzv7an-0","goal":"bruma declara 900 tCO2e hacia NDC"},"action":"marea:declarar","capability":"marea:declarar","authority":{"grants":[],"exercised":[]},"outcome":"blocked","evidence":null,"verification":null,"coverage":[],"notCovered":["external anchor"],"anchor":{"status":"pending","network":"stellar:testnet"},"detail":"doble conteo por unidad compartida: alba ya reconoci├│ anc-1 (bosque de la cuenca alta) en 2027 con la declaraci├│n d1, y bruma la declara otra vez en la misma m├®trica tCO2e y el mismo a├▒o: el mismo hecho no se reconoce dos veces","reason":"doble conteo por unidad compartida: alba ya reconoci├│ anc-1 (bosque de la cuenca alta) en 2027 con la declaraci├│n d1, y bruma la declara otra vez en la misma m├®trica tCO2e y el mismo a├▒o: el mismo hecho no se reconoce dos veces","exit":"retira la declaraci├│n de bruma sobre anc-1, o cambia de actividad: una reducci├│n no puede estar en dos balances a la vez","at":"2026-09-29T18:12:58.416Z","digest":"2351b328ee5998e7673182d7c4fda0fa1a49d1a746b0c5a7a182f2407f72d063"}}
+  {"tipo":"rechazo","clave":"d2","estado":"rechazada","codigo":"unidad-compartida","motivo":"doble conteo por unidad compartida: alba ya reconoci├│ anc-1 (bosque de la cuenca alta) en 2027 con la declaraci├│n d1, y bruma la declara otra vez en la misma m├®trica tCO2e y el mismo a├▒o: el mismo hecho no se reconoce dos veces","evidencia":{"choques":[["anc-1",2027]],"limpio":[],"contra":["d1"],"pista":"tCO2e"},"ajuste":null,"salida":"retira la declaraci├│n de bruma sobre anc-1, o cambia de actividad: una reducci├│n no puede estar en dos balances a la vez","declaracion":{"clave":"d2","pais":"bruma","metrica":"tCO2e","anclaje":"anc-1","metodologia":"fem-2024","anios":[2027],"cantidad":"900","destino":"NDC","componentes":[]},"en":"2026-09-29T18:12:58.418Z"}
+  {"tipo":"sello","clave":"d2","digest":"3aed446ed56bc83e9908ca115ea755ccf60e4bc7b45a588aec374513a0d545cc"}
+
+--- aceptada y rechazada, en el MISMO archivo y con la misma forma de linea
+  aceptacion: d1
+  rechazo:    d2 (unidad-compartida)
+  la entrada rechazada dice por que:
+    doble conteo por unidad compartida: alba ya reconoci├│ anc-1 (bosque de la cuenca alta) en 2027 con la declaraci├│n d1, y bruma la declara otra vez en la misma m├®trica tCO2e y el mismo a├▒o: el mismo hecho no se reconoce dos veces
+    salida: retira la declaraci├│n de bruma sobre anc-1, o cambia de actividad: una reducci├│n no puede estar en dos balances a la vez
+```

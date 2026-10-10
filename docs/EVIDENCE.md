@@ -49,7 +49,7 @@ The capture taken on 2026-10-09, in [`suite-2026-10-09.txt`](./suite-2026-10-09.
 
 What this run accredits is the local mechanism and its recorded boundary. It shows a working path, not a finished product or readiness for use.
 
-When the code opens, the package script specifies <code>npm test</code>. Run it in a fresh environment against the documented kernel copy: the suite should report the same count as the capture above, 25 tests with every one passing and none skipped, and [`suite-2026-10-09.txt`](./suite-2026-10-09.txt) is the reference for the test names and their results. Then inspect the output and the receipts. The recorded project has no network or testnet steps to repeat.
+The source is in this repository under the review-only license (reading and cloning for evaluation; no modification or redistribution), and the package script specifies <code>npm test</code>. Run it on Node 24 from the project root in a fresh environment against the documented kernel copy: the suite should report the same count as the capture above, 25 tests with every one passing and none skipped, and [`suite-2026-10-09.txt`](./suite-2026-10-09.txt) is the reference for the test names and their results. Then inspect the output and the receipts. The recorded project has no network or testnet steps to repeat.
 
 ## Adversarial phase
 
@@ -116,7 +116,7 @@ La captura del 2026-10-09, en [`suite-2026-10-09.txt`](./suite-2026-10-09.txt), 
 
 Lo que acredita esta corrida es el mecanismo local y su límite registrado. Muestra un camino que funciona, no un producto terminado ni preparación para el uso.
 
-Cuando se abra el código, el paquete especifica <code>npm test</code>. Se corre desde un entorno fresco contra la copia de kernel documentada: la suite debe informar el mismo conteo que la captura de arriba, 25 pruebas con todas aprobadas y ninguna omitida, y [`suite-2026-10-09.txt`](./suite-2026-10-09.txt) es la referencia de los nombres de las pruebas y sus resultados. Después se inspeccionan la salida y los recibos. El proyecto registrado no tiene pasos de red ni de testnet que repetir.
+El código está en este repositorio bajo la licencia de solo revisión (permite leer y clonar para evaluar, no modificar ni redistribuir), y el paquete especifica <code>npm test</code>. Se corre con Node 24 desde la raíz del proyecto, en un entorno fresco, contra la copia de kernel documentada: la suite debe informar el mismo conteo que la captura de arriba, 25 pruebas con todas aprobadas y ninguna omitida, y [`suite-2026-10-09.txt`](./suite-2026-10-09.txt) es la referencia de los nombres de las pruebas y sus resultados. Después se inspeccionan la salida y los recibos. El proyecto registrado no tiene pasos de red ni de testnet que repetir.
 
 ## Fase adversarial
 

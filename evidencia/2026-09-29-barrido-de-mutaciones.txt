@@ -1,0 +1,23 @@
+# Marea — barrido de mutaciones, 2026-09-29
+
+Cada regla del detector se rompe a propósito y se comprueba que la suite la note. Una regla que
+se puede quitar sin que nada se ponga rojo no es una regla. El archivo restaura el original al
+terminar, y avisa si una mutación está mal escrita en vez de contarla como fallo del detector.
+
+```
+DETECTADO   ( 4 rojos): la clave de colision pierde el anio
+DETECTADO   ( 4 rojos): la clave de colision pierde la actividad
+DETECTADO   ( 1 rojos): la puerta acepta cualquier metodologia
+DETECTADO   ( 1 rojos): la puerta acepta los anos que no son
+DETECTADO   ( 2 rojos): la puerta no mira el reloj de la autorizacion
+DETECTADO   ( 1 rojos): la puerta no mira el techo de la autorizacion
+DETECTADO   ( 1 rojos): la puerta no detecta la cifra inflada
+DETECTADO   ( 1 rojos): la puerta no exige que el anclaje sea de la misma metrica
+DETECTADO   ( 2 rojos): la puerta no ve la transferencia internacional
+DETECTADO   ( 1 rojos): la puerta no distingue un origen rechazado de uno reconocido
+DETECTADO   ( 1 rojos): el verificador cree al ejecutor en el doble conteo
+DETECTADO   ( 1 rojos): el verificador cree que toda pista es contable
+
+baseline restaurado: 25 pass, 0 fail
+todas las reglas cargan peso
+```

@@ -17,7 +17,7 @@
 It links where a claim comes from, who may declare it and how it is checked. Evidence: 25/25 tests. Fictional activity and data. Article 6.2 of the Paris Agreement.</p>
 
 <p align="center"><b>We’re applying to the Find Your Way hackathon and plan to participate in Meridian.</b></p>
-<p align="center"><b>For judges:</b> <a href="./docs/HOW_IT_WORKS.md">How it works</a> · <a href="./docs/EVIDENCE.md">Evidence</a> · <a href="./docs/LEGAL_AND_LIMITS.md">Limits</a> · <a href="./CODE_NOT_INCLUDED.md">Source and review terms</a>.<br>This public snapshot contains documentation and evidence, not runnable source.</p>
+<p align="center"><b>For judges:</b> <a href="./docs/HOW_IT_WORKS.md">How it works</a> · <a href="./docs/EVIDENCE.md">Evidence</a> · <a href="./docs/LEGAL_AND_LIMITS.md">Limits</a> · <a href="./LICENSE">Review-only license</a>.<br>The source is in this repository: run <code>npm test</code> on Node 24.</p>
 
 ---
 
@@ -90,7 +90,7 @@ PERSON RECORDS ORIGIN ── PERSON GRANTS BOUNDED AUTHORITY
 | Person granting authority | Set country, metric, commitment period, ceiling, destination and expiry | The grantor and the authority's limits | The declaring agent cannot authorize itself or exceed the grant |
 | Fictional declaring country | Submit a declaration with origin and methodology | Acceptance or rejection, with its reason | Alba, Bruma, Cenal and Duna are invented examples, not states |
 | Marea checker | Recompute against the local store and rules | The checks and evidence behind each result | It checks stored inputs, not the truth of a climate claim |
-| Independent reader | Open the record and report; when code is available, rerun the audit | Acceptances, rejections, reasons and receipt checks | The reader still depends on fictional inputs and this limited model |
+| Independent reader | Open the record and report; or rerun the audit from the source in this repository | Acceptances, rejections, reasons and receipt checks | The reader still depends on fictional inputs and this limited model |
 
 ## Why Marea
 
@@ -125,7 +125,7 @@ The agreement cites the Paris Agreement, Article 6.2, and Decision 2/CMA.3, anne
 
 ## How to review the project
 
-Start with [How it works](./docs/HOW_IT_WORKS.md), then compare the named checks and recorded runs in [Evidence](./docs/EVIDENCE.md). Read [Legal and limits](./docs/LEGAL_AND_LIMITS.md) before interpreting the prototype as a legal or climate finding. The public repository does not include source code; [Code not included](./CODE_NOT_INCLUDED.md) and [LICENSE](./LICENSE) state the publication and review conditions.
+Start with [How it works](./docs/HOW_IT_WORKS.md), then compare the named checks and recorded runs in [Evidence](./docs/EVIDENCE.md). Read [Legal and limits](./docs/LEGAL_AND_LIMITS.md) before interpreting the prototype as a legal or climate finding. The source is in this repository; [LICENSE](./LICENSE) states the review conditions. Run `npm test` on Node 24 from the project root.
 
 ## Author
 
@@ -135,7 +135,7 @@ Start with [How it works](./docs/HOW_IT_WORKS.md), then compare the named checks
 
 ---
 
-[How it works](./docs/HOW_IT_WORKS.md) &middot; [Evidence](./docs/EVIDENCE.md) &middot; [Legal and limits](./docs/LEGAL_AND_LIMITS.md) &middot; [Code not included](./CODE_NOT_INCLUDED.md) &middot; [Review-only license](./LICENSE) &middot; [Vespi](https://github.com/andresanemic/vespi) &middot; [Lore Plugin](https://github.com/andresanemic/lore-plugin)
+[How it works](./docs/HOW_IT_WORKS.md) &middot; [Evidence](./docs/EVIDENCE.md) &middot; [Legal and limits](./docs/LEGAL_AND_LIMITS.md) &middot; [Review-only license](./LICENSE) &middot; [Vespi](https://github.com/andresanemic/vespi) &middot; [Lore Plugin](https://github.com/andresanemic/lore-plugin)
 
 </details>
 
@@ -159,7 +159,7 @@ Marea explora una respuesta acotada a ese problema. Registra declaraciones ficti
 - Lee la base del proyecto y su recorrido. Empieza por [Cómo funciona](./docs/HOW_IT_WORKS.md).
 - Abre el registro de pruebas. Consulta [Evidencia](./docs/EVIDENCE.md).
 - Lee los límites jurídicos y de verificación. Consulta [Marco legal y límites](./docs/LEGAL_AND_LIMITS.md).
-- Revisa las condiciones de publicación. Consulta [Código no incluido](./CODE_NOT_INCLUDED.md) y la [licencia de solo revisión](./LICENSE).
+- Lee los términos en la [licencia de solo revisión](./LICENSE) y ejecuta `npm test` (Node 24).
 
 ## En un minuto
 
@@ -215,7 +215,7 @@ PERSONA INSCRIBE ORIGEN ── PERSONA CONCEDE AUTORIDAD ACOTADA
 | Persona que concede autoridad | Fijar país, métrica, período, tope, destino y vencimiento | Quién otorgó la autoridad y cuáles son sus límites | El agente declarante no puede autorizarse ni exceder lo concedido |
 | País declarante ficticio | Presentar una declaración con origen y metodología | Aceptación o rechazo, con su motivo | Alba, Bruma, Cenal y Duna son ejemplos inventados, no Estados |
 | Verificador de Marea | Recalcular contra el almacén local y sus reglas | Las comprobaciones y evidencia de cada resultado | Comprueba los datos almacenados, no la verdad de una afirmación climática |
-| Lector independiente | Abrir el registro y el reporte; cuando haya código disponible, volver a ejecutar la auditoría | Aceptaciones, rechazos, motivos y comprobaciones de recibos | Sigue dependiendo de datos ficticios y de este modelo limitado |
+| Lector independiente | Abrir el registro y el reporte; o volver a ejecutar la auditoría con el código de este repositorio | Aceptaciones, rechazos, motivos y comprobaciones de recibos | Sigue dependiendo de datos ficticios y de este modelo limitado |
 
 ## Por qué Marea
 
@@ -250,7 +250,7 @@ El acuerdo cita el Acuerdo de París, artículo 6.2, y la Decisión 2/CMA.3, ane
 
 ## Cómo revisar el proyecto
 
-Empieza por [Cómo funciona](./docs/HOW_IT_WORKS.md) y contrasta los nombres de las comprobaciones y las ejecuciones registradas en [Evidencia](./docs/EVIDENCE.md). Lee [Marco legal y límites](./docs/LEGAL_AND_LIMITS.md) antes de interpretar el prototipo como una conclusión jurídica o climática. El repositorio público no incluye el código fuente; [Código no incluido](./CODE_NOT_INCLUDED.md) y la [LICENSE](./LICENSE) describen las condiciones de publicación y revisión.
+Empieza por [Cómo funciona](./docs/HOW_IT_WORKS.md) y contrasta los nombres de las comprobaciones y las ejecuciones registradas en [Evidencia](./docs/EVIDENCE.md). Lee [Marco legal y límites](./docs/LEGAL_AND_LIMITS.md) antes de interpretar el prototipo como una conclusión jurídica o climática. El código está en este repositorio; la [LICENSE](./LICENSE) describe las condiciones de revisión. Ejecuta `npm test` con Node 24 desde la raíz del proyecto.
 
 ## Autor
 
@@ -260,6 +260,6 @@ Empieza por [Cómo funciona](./docs/HOW_IT_WORKS.md) y contrasta los nombres de 
 
 ---
 
-[Cómo funciona](./docs/HOW_IT_WORKS.md) &middot; [Evidencia](./docs/EVIDENCE.md) &middot; [Marco legal y límites](./docs/LEGAL_AND_LIMITS.md) &middot; [Código no incluido](./CODE_NOT_INCLUDED.md) &middot; [Licencia de solo revisión](./LICENSE) &middot; [Vespi](https://github.com/andresanemic/vespi) &middot; [Lore Plugin](https://github.com/andresanemic/lore-plugin)
+[Cómo funciona](./docs/HOW_IT_WORKS.md) &middot; [Evidencia](./docs/EVIDENCE.md) &middot; [Marco legal y límites](./docs/LEGAL_AND_LIMITS.md) &middot; [Licencia de solo revisión](./LICENSE) &middot; [Vespi](https://github.com/andresanemic/vespi) &middot; [Lore Plugin](https://github.com/andresanemic/lore-plugin)
 
 </details>

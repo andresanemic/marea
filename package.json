@@ -1,0 +1,11 @@
+{
+  "name": "marea",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Proyecto 9 de los diez de Vespi: la verificacion de compromisos climaticos entre paises. Demuestra el mecanismo de deteccion de doble conteo; no demuestra cumplimiento del Acuerdo de Paris. Consume el kernel de Vespi; no lo modifica.",
+  "scripts": {
+    "test": "node --test \"test/*.test.js\"",
+    "recorrido": "node src/recorrido.js",
+    "cli": "node src/cli.js"
+  }
+}

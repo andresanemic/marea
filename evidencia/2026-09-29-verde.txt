@@ -1,0 +1,34 @@
+# Marea — el GREEN, capturado el 2026-09-29
+
+Salida literal de `node --test --test-reporter=tap "test/*.test.js"` con la implementación.
+
+```
+ok 1 - el kit instalado declara los cinco módulos del núcleo
+ok 2 - el núcleo que consume Marea es el corte fijado, módulo por módulo
+ok 3 - los tres hosts corren la misma copia del núcleo, byte a byte
+ok 4 - el encabezado de los cinco módulos declara el mismo commit
+ok 5 - un segundo país que declara la misma actividad en la misma métrica es rechazado, y el motivo nombra al primero
+ok 6 - el solapamiento parcial de un año también es doble conteo, y el motivo nombra el año
+ok 7 - el segundo lado de una transferencia internacional se rechaza en vez de contarse dos veces
+ok 8 - una reducción sin metodología declarada no es comparable y se rechaza nombrando qué falta
+ok 9 - una reducción anclada a una actividad que el registro no tiene se rechaza por verificable, no por inválida
+ok 10 - una reducción que se apoya en un anclaje de otra métrica tampoco resuelve
+ok 11 - una declaración que suma un conjunto junto con sus propias partes se rechaza nombrando la actividad contada dos veces
+ok 12 - una agregación declarada una sola vez sí entra, con la cantidad declarada
+ok 13 - un compromiso con el reloj vencido se rechaza nombrando la hora en que murió
+ok 14 - pasada la hora, la autorización no revive sola: la misma declaración sigue rechazada
+ok 15 - CONTROL: dos países en métricas legítimamente distintas entran ambos, y la clave de la partida no es el año
+ok 16 - una declaración que pasa el techo autorizado se rechaza nombrando lo que queda
+ok 17 - una transferencia que cita un origen rechazado se rechaza por eso, no por doble conteo
+ok 18 - el rechazo también queda sellado por el núcleo, no solo por el registro
+ok 19 - el rechazo queda escrito en el mismo registro y en el mismo archivo que la aceptación
+ok 20 - una entrada aceptada lleva un recibo que verifica, y editarlo a mano lo rompe
+ok 21 - el reporte muestra, entrada por entrada, por qué cada una entró o no
+ok 22 - una tercera parte audita sin creer a nadie: un verificador que solo cree al ejecutor no pasa la auditoría
+ok 23 - la auditoría de una entrada rechazada también pasa, y la de un recibo ajeno no
+ok 24 - el verificador rechaza un doble conteo que la puerta no vio, porque no confía en ella
+ok 25 - el verificador rechaza un efecto cuyo ajuste se atribuyó al párrafo equivocado de la guía
+# tests 25
+# pass 25
+# fail 0
+```

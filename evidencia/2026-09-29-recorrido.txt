@@ -1,0 +1,167 @@
+# Marea — el recorrido completo, capturado el 2026-09-29
+
+Salida literal de `node src/recorrido.js`. Cada línea sale de una ejecución real: los países,
+las metodologías, las unidades y las cifras son de ejemplo.
+
+```
+Marea — recorrido completo. Registro en: C:\Users\andre\AppData\Local\Temp\marea-recorrido-YALYCU\registro.jsonl
+Países, metodologías, unidades y cifras son de EJEMPLO. Sin red, sin blockchain, sin pagos, sin un tercero.
+
+── 1. La persona inscribe las actividades de origen
+  anc-alba-1  alba  tCO2e   bosque de la cuenca alta
+  anc-alba-2  alba  tCO2e   cambio de combustible de un hospital
+  anc-alba-3  alba  MWh-eq  bombeo electrificado
+  anc-cenal-1  cenal  MWh-eq  riego solar
+  pistas de contabilidad: tCO2e → §8, MWh-eq → §9
+
+── 2. La persona autoriza los compromisos, con su reloj y su techo
+  aut-alba-ghg  alba  hasta 100000 tCO2e hacia NDC, vence 2026-12-01T00:00:00.000Z, otorgada por irene
+  aut-alba-nonghg  alba  hasta 8000 MWh-eq hacia NDC, vence 2026-12-01T00:00:00.000Z, otorgada por irene
+  aut-bruma-ghg  bruma  hasta 50000 tCO2e hacia NDC, vence 2026-12-01T00:00:00.000Z, otorgada por joel
+  aut-cenal-nonghg  cenal  hasta 6000 MWh-eq hacia NDC, vence 2026-12-01T00:00:00.000Z, otorgada por irene
+
+── 3. Alba declara una reducción con su metodología y su unidad: entra
+  estado:   aceptada
+  motivo:   reconocida en la pista tCO2e (guía 2/CMA.3, §8) bajo la autorización aut-alba-ghg
+  evidencia: {"plano":["anc-alba-1"],"anios":[2027],"autorizacion":"aut-alba-ghg","cobertura":["anclaje-resuelve","metodologia-declarada","sin-doble-conteo","ajuste-en-pista","autorizacion-vigente"]}
+  ajuste:   lado suma, pista tCO2e (guía 2/CMA.3 §8), años 2027, anclas anc-alba-1
+  sello:    e3da32e34f206490…
+  recibo:   verified · cobertura anclaje-resuelve, metodologia-declarada, sin-doble-conteo, ajuste-en-pista, autorizacion-vigente
+  anclaje:  pending en stellar:testnet — nada llegó a una red; esto NO está verificado afuera
+
+── 4. Bruma declara reutilizando la misma unidad sobre el mismo hecho: se rechaza
+  estado:   rechazada (unidad-compartida)
+  motivo:   doble conteo por unidad compartida: alba ya reconoció anc-alba-1 (bosque de la cuenca alta) en 2027 con la declaración dec-alba-1, y bruma la declara otra vez en la misma métrica tCO2e y el mismo año: el mismo hecho no se reconoce dos veces
+  evidencia: {"choques":[["anc-alba-1",2027]],"limpio":[],"contra":["dec-alba-1"],"pista":"tCO2e"}
+  salida:   retira la declaración de bruma sobre anc-alba-1, o cambia de actividad: una reducción no puede estar en dos balances a la vez
+  sello:    21eeacc59ed82a8c…
+
+── 5. Con unidades legítimamente distintas, las dos entradas entran
+  estado:   aceptada
+  motivo:   reconocida en la pista MWh-eq (guía 2/CMA.3, §9) bajo la autorización aut-cenal-nonghg
+  evidencia: {"plano":["anc-cenal-1"],"anios":[2027],"autorizacion":"aut-cenal-nonghg","cobertura":["anclaje-resuelve","metodologia-declarada","sin-doble-conteo","ajuste-en-pista","autorizacion-vigente"]}
+  ajuste:   lado suma, pista MWh-eq (guía 2/CMA.3 §9), años 2027, anclas anc-cenal-1
+  sello:    c1df6becadeb56dd…
+  dos actividades distintas, en dos pistas distintas, en el mismo año 2027: las dos entran.
+  Si la clave de la partida fuera el año, la segunda no entraría — y eso sería un no automático.
+  estado:   aceptada
+  motivo:   reconocida en la pista tCO2e (guía 2/CMA.3, §8) bajo la autorización aut-alba-ghg
+  evidencia: {"plano":["anc-alba-2"],"anios":[2027],"autorizacion":"aut-alba-ghg","cobertura":["anclaje-resuelve","metodologia-declarada","sin-doble-conteo","ajuste-en-pista","autorizacion-vigente"]}
+  ajuste:   lado suma, pista tCO2e (guía 2/CMA.3 §8), años 2027, anclas anc-alba-2
+  sello:    d73676125905d7aa…
+  dos actividades distintas en la misma métrica y el mismo año también entran: el par es (actividad, año), no el año solo.
+
+── 6. Los otros rechazos, cada uno con su motivo
+
+  sin metodología
+    rechazada (metodologia-ausente): la declaración no dice con qué metodología se midió la reducción, y una reducción sin metodología no es comparable con ninguna otra
+
+  anclaje que no resuelve
+    rechazada (anclaje-no-resuelve): la declaración se apoya en el anclaje anc-que-no-existe y el registro no lo tiene: nadie puede verificar contra qué actividad de origen se declaró esta reducción
+
+  anclaje de otra métrica
+    rechazada (anclaje-no-resuelve): el anclaje anc-cenal-1 está inscrito en la métrica MWh-eq y la declaración dice tCO2e: el anclaje existe pero no resuelve para esta declaración
+
+  transferencia internacional entre registros
+    rechazada (transferencia-internacional): esta entrada declara venir de dec-alba-3, que ya fue reconocida en este registro: es el segundo lado de un ajuste de transferencia y este proyecto no lleva la contabilidad del §8 de la guía 2/CMA.3, así que la rechaza en vez de reconocerla dos veces
+
+  el segundo lado de una transferencia, sin ajuste, también es doble conteo: este proyecto
+  rechaza en vez de llevar la contabilidad del §8, y lo dice en el motivo.
+
+── 7. El compromiso con el reloj vencido, y el techo que ya se gastó
+  estado:   rechazada (reloj-vencido)
+  motivo:   la autorización aut-cenal-nonghg de irene venció el 2026-12-01T00:00:00.000Z y un compromiso que murió con su reloj no revive solo
+  evidencia: {"contra":"aut-cenal-nonghg","vencio":"2026-12-01T00:00:00.000Z"}
+  salida:   renueva la autorización aut-cenal-nonghg con irene o retira la declaración
+  sello:    d90997b838166c65…
+  la misma autorización, dos años más tarde, sin que nadie la cerrara: sigue rechazada.
+
+── 8. El reporte: qué entró, qué no, y por qué
+
+  dec-alba-1       aceptada
+    reconocida en la pista tCO2e (guía 2/CMA.3, §8) bajo la autorización aut-alba-ghg
+    sello: verifica · recibo: verified
+
+  dec-bruma-1      rechazada (unidad-compartida)
+    doble conteo por unidad compartida: alba ya reconoció anc-alba-1 (bosque de la cuenca alta) en 2027 con la declaración dec-alba-1, y bruma la declara otra vez en la misma métrica tCO2e y el mismo año: el mismo hecho no se reconoce dos veces
+    salida: retira la declaración de bruma sobre anc-alba-1, o cambia de actividad: una reducción no puede estar en dos balances a la vez
+    sello: verifica · recibo: blocked
+
+  dec-cenal-1      aceptada
+    reconocida en la pista MWh-eq (guía 2/CMA.3, §9) bajo la autorización aut-cenal-nonghg
+    sello: verifica · recibo: verified
+
+  dec-alba-2       aceptada
+    reconocida en la pista tCO2e (guía 2/CMA.3, §8) bajo la autorización aut-alba-ghg
+    sello: verifica · recibo: verified
+
+  dec-alba-3       aceptada
+    reconocida en la pista MWh-eq (guía 2/CMA.3, §9) bajo la autorización aut-alba-nonghg
+    sello: verifica · recibo: verified
+
+  dec-alba-x1      rechazada (metodologia-ausente)
+    la declaración no dice con qué metodología se midió la reducción, y una reducción sin metodología no es comparable con ninguna otra
+    salida: declara la metodología de la reducción y vuelve: vuelve a quien autoriza la declaración: renueva el compromiso, cambia la metodología o la métrica, o deja la reducción anotada como no declarada
+    sello: verifica · recibo: blocked
+
+  dec-alba-x2      rechazada (anclaje-no-resuelve)
+    la declaración se apoya en el anclaje anc-que-no-existe y el registro no lo tiene: nadie puede verificar contra qué actividad de origen se declaró esta reducción
+    salida: inscribe el anclaje anc-que-no-existe con su actividad de origen, o cambia la declaración por uno que sí exista
+    sello: verifica · recibo: blocked
+
+  dec-alba-x3      rechazada (anclaje-no-resuelve)
+    el anclaje anc-cenal-1 está inscrito en la métrica MWh-eq y la declaración dice tCO2e: el anclaje existe pero no resuelve para esta declaración
+    salida: declara la métrica MWh-eq, o inscribe un anclaje propio en tCO2e
+    sello: verifica · recibo: blocked
+
+  dec-cenal-x4     rechazada (transferencia-internacional)
+    esta entrada declara venir de dec-alba-3, que ya fue reconocida en este registro: es el segundo lado de un ajuste de transferencia y este proyecto no lleva la contabilidad del §8 de la guía 2/CMA.3, así que la rechaza en vez de reconocerla dos veces
+    salida: presenta la transferencia como el mismo hecho con su ajuste y no como una reducción nueva, o retira dec-alba-3
+    sello: verifica · recibo: blocked
+
+  dec-cenal-5      rechazada (reloj-vencido)
+    la autorización aut-cenal-nonghg de irene venció el 2026-12-01T00:00:00.000Z y un compromiso que murió con su reloj no revive solo
+    salida: renueva la autorización aut-cenal-nonghg con irene o retira la declaración
+    sello: verifica · recibo: blocked
+
+── 9. La tercera parte audita sin creer a nadie
+  dec-alba-1       auditoría pasa — aceptada, sellada y verificada: el almacén, la autorización y el recibo dicen lo mismo
+  dec-bruma-1      auditoría pasa — rechazada por unidad-compartida, y el almacén vuelve a dar el mismo motivo
+  dec-cenal-1      auditoría pasa — aceptada, sellada y verificada: el almacén, la autorización y el recibo dicen lo mismo
+  dec-alba-2       auditoría pasa — aceptada, sellada y verificada: el almacén, la autorización y el recibo dicen lo mismo
+  dec-alba-3       auditoría pasa — aceptada, sellada y verificada: el almacén, la autorización y el recibo dicen lo mismo
+  dec-alba-x1      auditoría pasa — rechazada por metodologia-ausente, y el almacén vuelve a dar el mismo motivo
+  dec-alba-x2      auditoría pasa — rechazada por anclaje-no-resuelve, y el almacén vuelve a dar el mismo motivo
+  dec-alba-x3      auditoría pasa — rechazada por anclaje-no-resuelve, y el almacén vuelve a dar el mismo motivo
+  dec-cenal-x4     auditoría pasa — rechazada por transferencia-internacional, y el almacén vuelve a dar el mismo motivo
+  dec-cenal-5      auditoría pasa — rechazada por reloj-vencido, y el almacén vuelve a dar el mismo motivo
+
+  dec-alba-99, declarado con un verificador que solo cree al ejecutor:
+    el ejecutor dice aceptada · la auditoría dice NO pasa — el verificador creyó al ejecutor: no recomputó anclaje-resuelve, metodologia-declarada, sin-doble-conteo, ajuste-en-pista, autorizacion-vigente desde el almacén, y una verificación independiente no puede dar por bueno lo que no midió
+
+── 10. El registro es un archivo que cualquiera puede abrir, sin Marea y sin el núcleo
+  C:\Users\andre\AppData\Local\Temp\marea-recorrido-YALYCU\registro.jsonl: 46 líneas — ancla 4, autorizacion 4, efecto 5, recibo 11, aceptacion 5, sello 11, rechazo 6
+  aceptadas y rechazadas están en el mismo archivo, con la misma forma de línea.
+  ejemplo de rechazo, tal como está en el archivo:
+    dec-bruma-1 rechazada (unidad-compartida) — doble conteo por unidad compartida: alba ya reconoció anc-alba-1 (bosque de la cuenca alta) en 2027 con la declaración dec-alba-1, y bruma la declara otra vez en la misma métrica tCO2e y el mismo año: el mismo hecho no se reconoce dos veces
+    salida: retira la declaración de bruma sobre anc-alba-1, o cambia de actividad: una reducción no puede estar en dos balances a la vez
+
+── 11. Lo que este recorrido NO demuestra
+  - El cumplimiento del Acuerdo de París NO está demostrado y NO se afirma.
+    Lo que se demuestra es el mecanismo de detección de doble conteo.
+  - El artículo 6.2 y la decisión 2/CMA.3, anexo, §7-§8 se leyeron en fuente primaria
+    el 2026-09-29 y de ellos se imita SOLO la estructura del ajuste: que el par
+    suma/resta es un hecho único. El comportamiento implementado NO se contrastó
+    contra el texto de la norma, así que la afirmación es NO VERIFICADO.
+  - El proyecto NO lleva la contabilidad del §8: no calcula emisiones, no lleva
+    inventarios, ni trayectoria indicativa, ni promedio, ni revisión técnica de
+    expertos, ni la plataforma centralizada, ni el registro internacional. Por eso
+    la transferencia internacional entre registros se rechaza en vez de ajustarse.
+  - No hay hash en testnet ni recibo en explorador: el anclaje quedó en `pending` a
+    propósito, y esa línea dice que eso no se verificó afuera.
+  - No hay adopción, ni permiso, ni ancla verificada de ningún Estado, ni de la CMNUCC.
+  - Los países, las metodologías, las unidades y las cifras son de ejemplo.
+  - No es un producto terminado: es un recorrido vertical con sus pruebas a la vista.
+
+registro: C:\Users\andre\AppData\Local\Temp\marea-recorrido-YALYCU\registro.jsonl
+```
