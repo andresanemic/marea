@@ -16,8 +16,6 @@
 <p align="center"><b>Marea</b> — two countries can report the same climate reduction twice, under two programmes.<br>
 It links where a claim comes from, who may declare it and how it is checked. Evidence: 25/25 tests. Fictional activity and data. Article 6.2 of the Paris Agreement.</p>
 
-<p align="center"><a href="#english"><b>Read in English</b></a> · <a href="#espanol"><b>Leer en español</b></a></p>
-
 <p align="center"><b>We’re applying to the Find Your Way hackathon and plan to participate in Meridian.</b></p>
 <p align="center"><b>For judges:</b> <a href="./docs/HOW_IT_WORKS.md">How it works</a> · <a href="./docs/EVIDENCE.md">Evidence</a> · <a href="./docs/LEGAL_AND_LIMITS.md">Limits</a> · <a href="./CODE_NOT_INCLUDED.md">Source and review terms</a>.<br>This public snapshot contains documentation and evidence, not runnable source.</p>
 
