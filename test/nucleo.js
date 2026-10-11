@@ -24,7 +24,7 @@
 // propósito. Es el control funcionando, no una regresión, y reevaluar la huella
 // es decisión de Andrés.
 
-// Kernel 0.1.5 declara diez módulos; la lista y la prueba de procedencia cubren los diez.
+// Kernel 0.1.6 declara diez módulos; la lista y la prueba de procedencia cubren los diez.
 const fs = require('node:fs');
 const path = require('node:path');
 const { createHash } = require('node:crypto');

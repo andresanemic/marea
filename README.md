@@ -7,11 +7,12 @@
 <p align="center">
   <a href="#english"><img src="https://img.shields.io/badge/status-documented_prototype-D7B698?style=for-the-badge&labelColor=07111A" alt="Status: documented prototype"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/license-review--only-D7B698?style=for-the-badge&labelColor=07111A" alt="License: review only"></a>
-  <a href="./docs/EVIDENCE.md"><img src="https://img.shields.io/badge/suite-25_of_25_pass-D7B698?style=for-the-badge&labelColor=07111A" alt="Suite: 25 of 25 tests pass"></a>
+  <a href="./docs/EVIDENCE.md"><img src="https://img.shields.io/badge/suite-25_of_25_pass-D7B698?style=for-the-badge&labelColor=07111A" alt="Suite: 25 of 25 tests pass"></a> <b>It worked.</b>
   <a href="./docs/HOW_IT_WORKS.md"><img src="https://img.shields.io/badge/agreement-written_before_code-E0C170?style=for-the-badge&labelColor=07111A" alt="Agreement written before code"></a>
   <a href="https://github.com/andresanemic/vespi"><img src="https://img.shields.io/badge/built_with-Vespi_%C2%B7_Lore_Plugin-E0C170?style=for-the-badge&labelColor=07111A" alt="Built with Vespi and Lore Plugin"></a>
-  <a href="https://github.com/andresanemic/vespi/tree/ed559e83c976dd6e6a379a5510db776206f670b4"><img src="https://img.shields.io/badge/kernel-0.1.5_release-ed559e8?style=for-the-badge&labelColor=07111A&color=E0C170" alt="Kernel: 0.1.5 release (commit ed559e8)"></a>
+  <a href="https://github.com/andresanemic/vespi/tree/95f2d614f4492056c8bb2cd951f08d1089027d4f"><img src="https://img.shields.io/badge/kernel-0.1.6_pin-95f2d61?style=for-the-badge&labelColor=07111A&color=E0C170" alt="Kernel: 0.1.6 source pin (commit 95f2d61)"></a>
 </p>
+
 
 <p align="center"><b>Marea</b> — two countries can report the same climate reduction twice, under two programmes.<br>
 It links where a claim comes from, who may declare it and how it is checked. Evidence: 25/25 tests. Fictional activity and data. Article 6.2 of the Paris Agreement.</p>
@@ -109,7 +110,7 @@ Marea is not a national climate inventory, emissions calculator, registry, certi
 
 The recorded suite runs 25 named tests covering the collision key, valid distinct tracks, origins and methods, aggregate duplication, authorization expiry and ceilings, transfer limits, sealed acceptances and rejections, reports, and independent recomputation. The adversarial phase began with 4 passing infrastructure and kernel-pin checks and 21 behavior checks that did not pass against the empty implementation skeleton; a later mutation sweep confirmed that deliberate breaks in the tested rules were detected.
 
-The 2026-10-09 capture in [`docs/suite-2026-10-09.txt`](./docs/suite-2026-10-09.txt) reports **25 tests, 25 pass, 0 not passing and 0 skipped** on Node v24.15.0, run in a clean clone of the private project with an empty HOME and no network. The kernel checks verify the Vespi 0.1.5 copy (commit `ed559e83c976dd6e6a379a5510db776206f670b4`) that the project vendors under `vendor/vespi-kernel`, module by module and digest by digest, against that copy's own `SOURCE.md`. The digest pin stays: a changed kernel cannot be presented in silence as the tested one.
+The 2026-10-09 capture in [`docs/suite-2026-10-09.txt`](./docs/suite-2026-10-09.txt) reports **25 tests, 25 pass, 0 not passing and 0 skipped** on Node v24.15.0, run in a clean clone of the private project with an empty HOME and no network. The kernel checks verify the Vespi 0.1.6 copy (commit `95f2d614f4492056c8bb2cd951f08d1089027d4f`) that the project vendors under `vendor/vespi-kernel`, module by module and digest by digest, against that copy's own `SOURCE.md`. The digest pin stays: a changed kernel cannot be presented in silence as the tested one.
 
 The earlier capture, dated 2026-10-03, was red for one reason: the project was then pinned to an older kernel cut (Vespi 0.1.3), so its pin checks no longer described the installed bytes. That re-pin is done. What this run accredits is the local mechanism and its recorded boundary, not a finished product, not an audit and not readiness for use. [Evidence](./docs/EVIDENCE.md) records the run and its limits.
 
@@ -117,7 +118,7 @@ The earlier capture, dated 2026-10-03, was red for one reason: the project was t
 
 Marea consumes the Vespi kernel copy installed by Lore Plugin and uses its authority and receipt mechanisms for bounded declarations, sealed receipts and verification. Marea does not modify the kernel, Lore Plugin, the hosts or installed versions. Its tests check the kernel copy and its digests; the detailed relationship is in [How it works](./docs/HOW_IT_WORKS.md#marea-vespi-and-lore-plugin).
 
-**What this relationship means.** The project was built with Lore Plugin's method (its agreement and criterion live in the project, in `acuerdo.md` and `lore/`), and its operations, authority and receipts run on the Vespi kernel 0.1.5, in the pinned copy that Lore Plugin 2.5.1 distributes (`skills/vespi/core/kernel`). That copy sits in the project as `vendor/vespi-kernel` and the suite verifies it against its `SOURCE.md`. Lore Plugin does not run inside the project. This project does not use the kernel's newer capabilities (Stellar pubnet anchors, live x402 settlement, the ZK verifier, emergency access); it exercises the core of operations, authority and receipts.
+**What this relationship means.** The project was built with Lore Plugin's method (its agreement and criterion live in the project, in `acuerdo.md` and `lore/`), and its operations, authority and receipts run on the Vespi kernel 0.1.6, in the pinned copy prepared for Lore Plugin 2.5.2 (`skills/vespi/core/kernel`). That copy sits in the project as `vendor/vespi-kernel` and the suite verifies it against its `SOURCE.md`. Lore Plugin does not run inside the project. This project does not use the kernel's newer capabilities (Stellar pubnet anchors, live x402 settlement, the ZK verifier, emergency access); it exercises the core of operations, authority and receipts.
 
 ## What is not verified
 
@@ -143,6 +144,8 @@ Start with [How it works](./docs/HOW_IT_WORKS.md), then compare the named checks
 <summary><b>Leer en español</b></summary>
 
 <a id="espanol"></a>
+
+<p align="center"><b>Funcionó.</b></p>
 
 **Marea hace visible una entrada contable climática duplicada y deja su motivo junto a la primera entrada en el mismo registro local.**
 
@@ -234,7 +237,7 @@ Marea no es un inventario climático nacional, una calculadora de emisiones, un 
 
 La suite registrada reúne 25 pruebas con nombre sobre la clave de colisión, pistas distintas válidas, orígenes y metodologías, duplicación de agregados, vencimiento y topes de autorizaciones, límites de transferencias, recibos sellados para aceptaciones y rechazos, reportes y recálculo independiente. La fase adversarial empezó con 4 pruebas de infraestructura y fijación de kernel aprobadas y 21 pruebas de comportamiento que no pasaron contra el esqueleto vacío; un barrido posterior confirmó que la suite detectaba roturas deliberadas de las reglas comprobadas.
 
-La captura del 2026-10-09 en [`docs/suite-2026-10-09.txt`](./docs/suite-2026-10-09.txt) informa **25 pruebas, 25 aprobadas, 0 sin aprobar y 0 omitidas** sobre Node v24.15.0, corrida en un clon limpio del proyecto privado, con HOME vacío y sin red. Las comprobaciones del kernel verifican la copia de Vespi 0.1.5 (commit `ed559e83c976dd6e6a379a5510db776206f670b4`) que el proyecto lleva en `vendor/vespi-kernel`, módulo por módulo y digest por digest, contra el `SOURCE.md` de esa misma copia. La fijación por digest se mantiene: un kernel cambiado no puede presentarse en silencio como el que se probó.
+La captura del 2026-10-09 en [`docs/suite-2026-10-09.txt`](./docs/suite-2026-10-09.txt) informa **25 pruebas, 25 aprobadas, 0 sin aprobar y 0 omitidas** sobre Node v24.15.0, corrida en un clon limpio del proyecto privado, con HOME vacío y sin red. Las comprobaciones del kernel verifican la copia de Vespi 0.1.6 (commit `95f2d614f4492056c8bb2cd951f08d1089027d4f`) que el proyecto lleva en `vendor/vespi-kernel`, módulo por módulo y digest por digest, contra el `SOURCE.md` de esa misma copia. La fijación por digest se mantiene: un kernel cambiado no puede presentarse en silencio como el que se probó.
 
 La captura anterior, del 2026-10-03, estuvo en rojo por una única razón: el proyecto estaba fijado entonces a un corte viejo del kernel (Vespi 0.1.3), así que sus comprobaciones de pin ya no describían los bytes instalados. Ese re-pin ya está hecho. Lo que acredita esta corrida es el mecanismo local y su límite registrado, no un producto terminado, ni una auditoría, ni preparación para el uso. [Evidencia](./docs/EVIDENCE.md) registra la corrida y sus límites.
 
@@ -242,7 +245,7 @@ La captura anterior, del 2026-10-03, estuvo en rojo por una única razón: el pr
 
 Marea consume la copia del kernel de Vespi que instala Lore Plugin y usa sus mecanismos de autoridad y recibos para declaraciones acotadas, recibos sellados y verificación. Marea no modifica el kernel, Lore Plugin, los hosts ni las versiones instaladas. Sus pruebas comprueban la copia del kernel y sus digests; la relación detallada está en [Cómo funciona](./docs/HOW_IT_WORKS.md#marea-vespi-y-lore-plugin).
 
-**Qué significa esta relación.** El proyecto se construyó con el método de Lore Plugin (su acuerdo y su criterio viven en el proyecto, en `acuerdo.md` y `lore/`), y sus operaciones, autoridad y recibos corren sobre el kernel de Vespi 0.1.5, en la copia fijada que distribuye Lore Plugin 2.5.1 (`skills/vespi/core/kernel`). Esa copia está en el proyecto como `vendor/vespi-kernel` y la suite la verifica contra su `SOURCE.md`. Lore Plugin no corre dentro del proyecto. Este proyecto no usa las capacidades nuevas del kernel (anclas Stellar pubnet, liquidación x402 en vivo, el verificador ZK, el acceso de emergencia); ejerce el núcleo de operaciones, autoridad y recibos.
+**Qué significa esta relación.** El proyecto se construyó con el método de Lore Plugin (su acuerdo y su criterio viven en el proyecto, en `acuerdo.md` y `lore/`), y sus operaciones, autoridad y recibos corren sobre el kernel de Vespi 0.1.6, en la copia fijada para Lore Plugin 2.5.2 (`skills/vespi/core/kernel`). Esa copia está en el proyecto como `vendor/vespi-kernel` y la suite la verifica contra su `SOURCE.md`. Lore Plugin no corre dentro del proyecto. Este proyecto no usa las capacidades nuevas del kernel (anclas Stellar pubnet, liquidación x402 en vivo, el verificador ZK, el acceso de emergencia); ejerce el núcleo de operaciones, autoridad y recibos.
 
 ## Lo que no está verificado
 

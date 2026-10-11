@@ -11,7 +11,7 @@ const path = require('node:path');
 const { KERNEL, MODULOS, cuerpo, sha, declaracionDelKit, COPIAS } = require('./nucleo.js');
 
 test('la copia vendorizada declara los diez módulos del núcleo', () => {
-  // 0.1.5 declara diez módulos, incluidos nombres con guion y dígitos.
+  // 0.1.6 declara diez módulos, incluidos nombres con guion y dígitos.
   const tabla = declaracionDelKit(KERNEL);
   assert.equal(tabla.size, 10, `el SOURCE.md instalado declara ${tabla.size} módulos y se esperaban 10`);
   for (const nombre of MODULOS) {
@@ -28,7 +28,7 @@ test('el núcleo que consume Marea es el corte fijado, módulo por módulo', () 
   }
 });
 
-// 0.1.5: COPIAS ya no apunta a los hosts sino a la copia vendorizada
+// 0.1.6: COPIAS ya no apunta a los hosts sino a la copia vendorizada
 // (`test/nucleo.js`); el recorrido verifica esa copia, sin leer fuera de la carpeta.
 test('la copia vendorizada coincide con su SOURCE.md, byte a byte', () => {
   const presentes = COPIAS.filter(([, dir]) => fs.existsSync(path.join(dir, 'SOURCE.md')));
@@ -44,8 +44,8 @@ test('la copia vendorizada coincide con su SOURCE.md, byte a byte', () => {
 });
 
 test('el encabezado de los diez módulos declara el mismo commit', () => {
-  // 0.1.5: diez módulos y el commit fijado es
-  // ed559e83c976dd6e6a379a5510db776206f670b4, el del corte 0.1.5.
+  // 0.1.6: diez módulos y el commit fijado es
+  // 95f2d614f4492056c8bb2cd951f08d1089027d4f, el del corte 0.1.6.
   const commits = new Set();
   for (const modulo of MODULOS) {
     const lineas = fs.readFileSync(path.join(KERNEL, modulo), 'utf8').split('\n').slice(0, 3).join(' ');
@@ -54,5 +54,5 @@ test('el encabezado de los diez módulos declara el mismo commit', () => {
     commits.add(encontrado[1].slice(0, 7));
   }
   assert.equal(commits.size, 1, `los diez módulos no apuntan al mismo commit: ${[...commits].join(', ')}`);
-  assert.equal([...commits][0], 'ed559e8', 'el commit del encabezado no es el corte 0.1.5 fijado');
+  assert.equal([...commits][0], '95f2d61', 'el commit del encabezado no es el corte 0.1.6 fijado');
 });
