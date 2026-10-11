@@ -1,33 +1,33 @@
 Suite capture — marea — 2026-10-11
-Command: node --test test/*.test.js (clean clone of commit 88efaa8, empty HOME, no network)
+Command: node --test test/*.test.js (clean clone of commit 4c688f2, empty HOME, no network)
 Node: v24.15.0 · Kernel: Vespi 0.1.6, commit 39d45733839d0a05f60248fc6e5b81c892c464f8, copied in vendor/vespi-kernel
 Summary: tests 25 pass 25 fail 0 cancelled 0 skipped 0 todo 0 
 
-✔ la copia vendorizada declara los diez módulos del núcleo (2.081ms)
-✔ el núcleo que consume Marea es el corte fijado, módulo por módulo (113.098ms)
-✔ la copia vendorizada coincide con su SOURCE.md, byte a byte (2.2206ms)
-✔ el encabezado de los diez módulos declara el mismo commit (3.3366ms)
-✔ un segundo país que declara la misma actividad en la misma métrica es rechazado, y el motivo nombra al primero (36.9026ms)
-✔ el solapamiento parcial de un año también es doble conteo, y el motivo nombra el año (32.2931ms)
-✔ el segundo lado de una transferencia internacional se rechaza en vez de contarse dos veces (25.2111ms)
-✔ una reducción sin metodología declarada no es comparable y se rechaza nombrando qué falta (14.3732ms)
-✔ una reducción anclada a una actividad que el registro no tiene se rechaza por verificable, no por inválida (16.7369ms)
-✔ una reducción que se apoya en un anclaje de otra métrica tampoco resuelve (15.3212ms)
-✔ una declaración que suma un conjunto junto con sus propias partes se rechaza nombrando la actividad contada dos veces (18.6669ms)
-✔ una agregación declarada una sola vez sí entra, con la cantidad declarada (21.1175ms)
-✔ un compromiso con el reloj vencido se rechaza nombrando la hora en que murió (15.2597ms)
-✔ pasada la hora, la autorización no revive sola: la misma declaración sigue rechazada (22.8646ms)
-✔ CONTROL: dos países en métricas legítimamente distintas entran ambos, y la clave de la partida no es el año (38.6092ms)
-✔ una declaración que pasa el techo autorizado se rechaza nombrando lo que queda (24.0533ms)
-✔ una transferencia que cita un origen rechazado se rechaza por eso, no por doble conteo (15.9528ms)
-✔ el rechazo también queda sellado por el núcleo, no solo por el registro (14.9393ms)
-✔ el rechazo queda escrito en el mismo registro y en el mismo archivo que la aceptación (24.132ms)
-✔ una entrada aceptada lleva un recibo que verifica, y editarlo a mano lo rompe (18.7282ms)
-✔ el reporte muestra, entrada por entrada, por qué cada una entró o no (25.4107ms)
-✔ una tercera parte audita sin creer a nadie: un verificador que solo cree al ejecutor no pasa la auditoría (17.3698ms)
-✔ la auditoría de una entrada rechazada también pasa, y la de un recibo ajeno no (14.7366ms)
-✔ el verificador rechaza un doble conteo que la puerta no vio, porque no confía en ella (22.5042ms)
-✔ el verificador rechaza un efecto cuyo ajuste se atribuyó al párrafo equivocado de la guía (15.5457ms)
+✔ la copia vendorizada declara los diez módulos del núcleo (2.6824ms)
+✔ el núcleo que consume Marea es el corte fijado, módulo por módulo (140.7928ms)
+✔ la copia vendorizada coincide con su SOURCE.md, byte a byte (2.7742ms)
+✔ el encabezado de los diez módulos declara el mismo commit (4.6542ms)
+✔ un segundo país que declara la misma actividad en la misma métrica es rechazado, y el motivo nombra al primero (46.5159ms)
+✔ el solapamiento parcial de un año también es doble conteo, y el motivo nombra el año (35.2469ms)
+✔ el segundo lado de una transferencia internacional se rechaza en vez de contarse dos veces (31.7948ms)
+✔ una reducción sin metodología declarada no es comparable y se rechaza nombrando qué falta (20.2162ms)
+✔ una reducción anclada a una actividad que el registro no tiene se rechaza por verificable, no por inválida (22.4811ms)
+✔ una reducción que se apoya en un anclaje de otra métrica tampoco resuelve (20.0418ms)
+✔ una declaración que suma un conjunto junto con sus propias partes se rechaza nombrando la actividad contada dos veces (24.9913ms)
+✔ una agregación declarada una sola vez sí entra, con la cantidad declarada (28.534ms)
+✔ un compromiso con el reloj vencido se rechaza nombrando la hora en que murió (21.0057ms)
+✔ pasada la hora, la autorización no revive sola: la misma declaración sigue rechazada (32.2735ms)
+✔ CONTROL: dos países en métricas legítimamente distintas entran ambos, y la clave de la partida no es el año (57.4232ms)
+✔ una declaración que pasa el techo autorizado se rechaza nombrando lo que queda (33.0668ms)
+✔ una transferencia que cita un origen rechazado se rechaza por eso, no por doble conteo (23.7054ms)
+✔ el rechazo también queda sellado por el núcleo, no solo por el registro (23.072ms)
+✔ el rechazo queda escrito en el mismo registro y en el mismo archivo que la aceptación (36.3346ms)
+✔ una entrada aceptada lleva un recibo que verifica, y editarlo a mano lo rompe (30.5737ms)
+✔ el reporte muestra, entrada por entrada, por qué cada una entró o no (41.9848ms)
+✔ una tercera parte audita sin creer a nadie: un verificador que solo cree al ejecutor no pasa la auditoría (28.0662ms)
+✔ la auditoría de una entrada rechazada también pasa, y la de un recibo ajeno no (30.1709ms)
+✔ el verificador rechaza un doble conteo que la puerta no vio, porque no confía en ella (43.4731ms)
+✔ el verificador rechaza un efecto cuyo ajuste se atribuyó al párrafo equivocado de la guía (26.0958ms)
 ℹ tests 25
 ℹ suites 0
 ℹ pass 25
@@ -35,4 +35,4 @@ Summary: tests 25 pass 25 fail 0 cancelled 0 skipped 0 todo 0
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 655.2345
+ℹ duration_ms 922.9406
