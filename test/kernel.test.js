@@ -45,7 +45,7 @@ test('la copia vendorizada coincide con su SOURCE.md, byte a byte', () => {
 
 test('el encabezado de los diez módulos declara el mismo commit', () => {
   // 0.1.6: diez módulos y el commit fijado es
-  // 95f2d614f4492056c8bb2cd951f08d1089027d4f, el del corte 0.1.6.
+  // 7767daa369e464b486ddf16b08b8985e59ec107d, el del corte 0.1.6.
   const commits = new Set();
   for (const modulo of MODULOS) {
     const lineas = fs.readFileSync(path.join(KERNEL, modulo), 'utf8').split('\n').slice(0, 3).join(' ');
@@ -54,5 +54,5 @@ test('el encabezado de los diez módulos declara el mismo commit', () => {
     commits.add(encontrado[1].slice(0, 7));
   }
   assert.equal(commits.size, 1, `los diez módulos no apuntan al mismo commit: ${[...commits].join(', ')}`);
-  assert.equal([...commits][0], '95f2d61', 'el commit del encabezado no es el corte 0.1.6 fijado');
+  assert.equal([...commits][0], '7767daa', 'el commit del encabezado no es el corte 0.1.6 fijado');
 });
