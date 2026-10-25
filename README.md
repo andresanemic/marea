@@ -150,8 +150,6 @@ Start with [How it works](./docs/HOW_IT_WORKS.md), then compare the named checks
 
 <a id="espanol"></a>
 
-<p align="center"><b>Funcionó.</b></p>
-
 **Marea hace visible una entrada contable climática duplicada y deja su motivo junto a la primera entrada en el mismo registro local.**
 
 > **La unidad es el par actividad-año: un mismo hecho puede reconocerse una sola vez.**
