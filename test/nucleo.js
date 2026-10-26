@@ -24,7 +24,7 @@
 // propósito. Es el control funcionando, no una regresión, y reevaluar la huella
 // es decisión de Andrés.
 
-// Kernel 0.1.6 declara diez módulos; la lista y la prueba de procedencia cubren los diez.
+// Kernel 0.1.8 declara doce módulos; la lista y la prueba de procedencia cubren los doce.
 const fs = require('node:fs');
 const path = require('node:path');
 const { createHash } = require('node:crypto');
@@ -35,7 +35,7 @@ const { createHash } = require('node:crypto');
 const KERNEL = path.join(__dirname, '..', 'vendor', 'vespi-kernel');
 const COPIAS = [['vendorizada', KERNEL]];
 
-const MODULOS = ['authority.js', 'continuity.js', 'delegation.js', 'emergency.js', 'operation.js', 'receipt.js', 'skill-provenance.js', 'time.js', 'x402.js', 'zk.js'];
+const MODULOS = ['authority.js', 'context.js', 'continuity.js', 'delegation.js', 'emergency.js', 'operation.js', 'receipt.js', 'skill-provenance.js', 'time.js', 'x402.js', 'zk-bn254-reference.js', 'zk.js'];
 
 // Cada archivo del núcleo es un encabezado de procedencia de tres líneas seguido
 // de los bytes exactos de la fuente. El cuerpo es lo que se hashea.

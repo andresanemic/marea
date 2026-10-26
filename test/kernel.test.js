@@ -10,10 +10,10 @@ const path = require('node:path');
 
 const { KERNEL, MODULOS, cuerpo, sha, declaracionDelKit, COPIAS } = require('./nucleo.js');
 
-test('la copia vendorizada declara los diez módulos del núcleo', () => {
-  // 0.1.6 declara diez módulos, incluidos nombres con guion y dígitos.
+test('la copia vendorizada declara los doce módulos del núcleo', () => {
+  // 0.1.8 declara doce módulos, incluidos nombres con guion y dígitos.
   const tabla = declaracionDelKit(KERNEL);
-  assert.equal(tabla.size, 10, `el SOURCE.md instalado declara ${tabla.size} módulos y se esperaban 10`);
+  assert.equal(tabla.size, 12, `el SOURCE.md instalado declara ${tabla.size} módulos y se esperaban 12`);
   for (const nombre of MODULOS) {
     assert.ok(tabla.has(nombre), `el SOURCE.md instalado no declara ${nombre}`);
   }
@@ -28,7 +28,7 @@ test('el núcleo que consume Marea es el corte fijado, módulo por módulo', () 
   }
 });
 
-// 0.1.6: COPIAS ya no apunta a los hosts sino a la copia vendorizada
+// 0.1.8: COPIAS ya no apunta a los hosts sino a la copia vendorizada
 // (`test/nucleo.js`); el recorrido verifica esa copia, sin leer fuera de la carpeta.
 test('la copia vendorizada coincide con su SOURCE.md, byte a byte', () => {
   const presentes = COPIAS.filter(([, dir]) => fs.existsSync(path.join(dir, 'SOURCE.md')));
@@ -43,9 +43,9 @@ test('la copia vendorizada coincide con su SOURCE.md, byte a byte', () => {
   }
 });
 
-test('el encabezado de los diez módulos declara el mismo commit', () => {
-  // 0.1.6: diez módulos y el commit fijado es
-  // 39d45733839d0a05f60248fc6e5b81c892c464f8, el del corte 0.1.6.
+test('el encabezado de los doce módulos declara el mismo commit', () => {
+  // 0.1.8: doce módulos y el commit fijado es
+  // 13dbe24310dab2a12eee26ad51dfdfddbff5458b, el del corte 0.1.8.
   const commits = new Set();
   for (const modulo of MODULOS) {
     const lineas = fs.readFileSync(path.join(KERNEL, modulo), 'utf8').split('\n').slice(0, 3).join(' ');
@@ -53,6 +53,6 @@ test('el encabezado de los diez módulos declara el mismo commit', () => {
     assert.ok(encontrado, `${modulo}: el encabezado no declara un commit`);
     commits.add(encontrado[1].slice(0, 7));
   }
-  assert.equal(commits.size, 1, `los diez módulos no apuntan al mismo commit: ${[...commits].join(', ')}`);
-  assert.equal([...commits][0], '39d4573', 'el commit del encabezado no es el corte 0.1.6 fijado');
+  assert.equal(commits.size, 1, `los doce módulos no apuntan al mismo commit: ${[...commits].join(', ')}`);
+  assert.equal([...commits][0], '13dbe24', 'el commit del encabezado no es el corte 0.1.8 fijado');
 });
